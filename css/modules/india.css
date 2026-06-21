@@ -20,11 +20,11 @@
 
 /* Warm, Rich Aesthetic */
 [data-chapter="india"] .card {
-  background: linear-gradient(135deg, var(--color-bg-alt) 0%, #F8EFDD 100%);
+  background: linear-gradient(135deg, var(--color-bg-alt) 0%, #3D2810 100%);
 }
 
 [data-chapter="india"] .card:hover {
-  background: linear-gradient(135deg, var(--color-bg-alt) 0%, #FBF3E6 100%);
+  background: linear-gradient(135deg, var(--color-bg-alt) 0%, #4A3215 100%);
 }
 
 /* Timeline accent for India */
@@ -47,11 +47,11 @@
 
 /* Link styling */
 [data-chapter="india"] a {
-  color: var(--color-accent);
+  color: #E8A557;
 }
 
 [data-chapter="india"] a:hover {
-  color: var(--color-accent-2);
+  color: #F8C380;
 }
 
 /* Tags with warm aesthetic */
@@ -76,7 +76,7 @@
 
 /* Stats block for India */
 [data-chapter="india"] .stats-block {
-  background: linear-gradient(135deg, var(--color-bg-alt) 0%, #F8EFDD 100%);
+  background: linear-gradient(135deg, var(--color-bg-alt) 0%, #3D2810 100%);
   border-color: var(--color-border);
 }
 
@@ -90,19 +90,63 @@
   font-weight: 600;
 }
 
-/* Dark mode for India */
-[data-chapter="india"][data-theme="dark"] h1 {
-  color: #FDF6EC;
+
+
+/* Hero Grid Rules */
+[data-chapter="india"] .hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  width: 100%;
+  height: 100%;
 }
 
-[data-chapter="india"][data-theme="dark"] p {
-  color: #C49A6C;
+[data-chapter="india"] .hero-text {
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+  z-index: 2;
 }
 
-[data-chapter="india"][data-theme="dark"] .card {
-  background: linear-gradient(135deg, #2A1A05 0%, #3D2810 100%);
+[data-chapter="india"] .hero-photo {
+  order: 2;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  /* Aligns the image towards the text on the left */
+  justify-content: flex-start;
+  /* Uses min() to ensure the image doesn't get too large vertically */
+  --image-scale: min(80%, 60vh); 
 }
 
-[data-chapter="india"][data-theme="dark"] a {
-  color: #E8A557;
+[data-chapter="india"] .hero-photo img {
+  width: var(--image-scale);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  filter: sepia(0.3) saturate(1.2) contrast(1.1);
+  position: relative;
+  z-index: 1;
 }
+
+[data-chapter="india"] .hero-photo::after {
+  /* subtle edge fades that blend the photo into the page background on all sides
+     - keeps the photo center clear while fading edges to var(--color-bg)
+     - uses a combination of linear-gradients for each side so blending matches the page color */
+  content: "";
+  position: absolute;
+  width: var(--image-scale);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  pointer-events: none;
+  z-index: 2;
+  background:
+    /* top */ linear-gradient(to bottom, var(--color-bg) 0%, rgba(0,0,0,0) 20%),
+    /* bottom */ linear-gradient(to top, var(--color-bg) 0%, rgba(0,0,0,0) 20%),
+    /* left */ linear-gradient(to right, var(--color-bg) 0%, rgba(0,0,0,0) 20%),
+    /* right */ linear-gradient(to left, var(--color-bg) 0%, rgba(0,0,0,0) 20%);
+  background-blend-mode: normal;
+}
+

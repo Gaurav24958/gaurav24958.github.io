@@ -86,6 +86,63 @@
 
   section.hero {
     min-height: 400px;
+    height: auto;
+  }
+
+  /* India Mobile Hero */
+  [data-chapter="india"] .hero-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  [data-chapter="india"] .hero-photo {
+    order: 1 !important;
+    height: 50vh;
+    width: 100%;
+    justify-content: center;
+  }
+
+  [data-chapter="india"] .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  [data-chapter="india"] .hero-photo::after {
+    width: 100%;
+    height: 100%;
+  }
+
+  [data-chapter="india"] .hero-text {
+    order: 2;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  [data-chapter="india"] .hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  /* Ireland Mobile Hero */
+  [data-chapter="ireland"] .site-nav {
+    position: absolute;
+    background-color: transparent;
+    box-shadow: none;
+    width: 100%;
+    z-index: 100;
+  }
+
+  [data-chapter="ireland"] .hero {
+    height: 100vh;
+  }
+
+  [data-chapter="ireland"] .hero-video {
+    object-position: center;
+  }
+
+  [data-chapter="ireland"] .hero-content h1 {
+    font-size: 2.5rem;
   }
 
   .hero-label {

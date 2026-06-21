@@ -1,61 +1,75 @@
 <!doctype html>
 <html data-chapter="india">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gaurav Boob — India Chapter</title>
-    <link rel="stylesheet" href="/css/style.css"/>
-  </head>
-  <body>
-    <nav class="site-nav">
-      <div class="nav-inner">
-        <div class="nav-left">
-          <a href="/india/">About</a>
-          <a href="/india/experience/">Experience</a>
-          <a href="/india/projects/">Projects</a>
-          <a href="/india/skills/">Skills</a>
-        </div>
 
-        <div class="chapter-toggle">
-          <button class="toggle-btn" id="btn-india" data-target="/india/">
-            🇮🇳 IND
-          </button>
-          <span class="toggle-divider">↔</span>
-          <button class="toggle-btn" id="btn-ireland" data-target="/ireland/">
-            IRE 🇮🇪
-          </button>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gaurav Boob — India Chapter</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <script>
+    if (sessionStorage.getItem('chapter-switching') === 'true') {
+      const style = document.createElement('style');
+      style.id = 'curtain-initial-style';
+      style.innerHTML = `
+        .curtain { transform: translateY(0) !important; transition: none !important; }
+        body > *:not(.curtain) { opacity: 0 !important; }
+        html, body { background-color: #F4A124 !important; background-image: none !important; }
+      `;
+      document.head.appendChild(style);
+    }
+  </script>
+</head>
 
-        <div class="nav-right">
-          <a href="/india/adventures/">Adventures</a>
-          <a href="/india/life/">Life</a>
-          <a href="/india/thoughts/">Thoughts</a>
-          <a href="/resume/">Resume</a>
-          <button class="theme-toggle" id="theme-toggle">○</button>
-        </div>
-
-        <button class="nav-hamburger" id="nav-hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-
-      <div class="nav-mobile-menu" id="nav-mobile-menu">
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="nav-left">
         <a href="/india/">About</a>
         <a href="/india/experience/">Experience</a>
         <a href="/india/projects/">Projects</a>
         <a href="/india/skills/">Skills</a>
+      </div>
+
+      <div class="chapter-toggle">
+        <button class="toggle-btn" id="btn-india" data-target="/india/">
+          🇮🇳 IND
+        </button>
+        <span class="toggle-divider">↔</span>
+        <button class="toggle-btn" id="btn-ireland" data-target="/ireland/">
+          IRE 🇮🇪
+        </button>
+      </div>
+
+      <div class="nav-right">
         <a href="/india/adventures/">Adventures</a>
         <a href="/india/life/">Life</a>
         <a href="/india/thoughts/">Thoughts</a>
         <a href="/resume/">Resume</a>
+        <button class="theme-toggle" id="theme-toggle">○</button>
       </div>
-    </nav>
 
-    <section class="hero india-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
+      <button class="nav-hamburger" id="nav-hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile-menu" id="nav-mobile-menu">
+      <a href="/india/">About</a>
+      <a href="/india/experience/">Experience</a>
+      <a href="/india/projects/">Projects</a>
+      <a href="/india/skills/">Skills</a>
+      <a href="/india/adventures/">Adventures</a>
+      <a href="/india/life/">Life</a>
+      <a href="/india/thoughts/">Thoughts</a>
+      <a href="/resume/">Resume</a>
+    </div>
+  </nav>
+
+  <section class="hero india-hero">
+    <div class="hero-grid">
+      <div class="hero-text">
         <p class="hero-label">Chapter One</p>
         <h1>Gaurav Boob</h1>
         <p class="hero-sub">Full-Stack Developer | AI/ML Researcher | India</p>
@@ -63,53 +77,56 @@
           Building scalable systems and exploring deep learning
         </p>
       </div>
+      <div class="hero-photo">
+        <img src="/assets/india/Gaurav.jpeg" alt="Gaurav Boob" />
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <section style="margin: 3rem 0">
+      <h2>About</h2>
+      <div class="prose">
+        <p>
+          I'm from Pune, India — a city that shaped my curiosity and drive to
+          build. My engineering journey began at SPIT (Pune Institute of
+          Computer Technology) where I studied Electronics &
+          Telecommunication. During my undergrad, I developed a passion for
+          bridging theory and practice, leading me into full-stack
+          development, AI/ML, and computer vision research.
+        </p>
+        <p>
+          My first professional role was at Dragonfly Financial Technologies,
+          where I honed my backend development skills, working on payment
+          systems and optimizing database queries. This evolved into my
+          current role at Fidelity Information Services (FIS), where I
+          contribute to the Payments team, handling complex international
+          transactions and building robust financial software that serves
+          millions globally. I'm driven by the challenge of solving real-world
+          problems at scale.
+        </p>
+        <p>
+          Beyond work, I'm deeply invested in research—exploring applications
+          of deep learning in healthcare (diabetic retinopathy classification)
+          and speech recognition (lipreading for Indian English). I believe
+          technology should serve humanity, and I'm committed to continuous
+          learning and growth.
+        </p>
+      </div>
     </section>
+  </main>
 
-    <main class="container">
-      <section style="margin: 3rem 0">
-        <h2>About</h2>
-        <div class="prose">
-          <p>
-            I'm from Pune, India — a city that shaped my curiosity and drive to
-            build. My engineering journey began at SPIT (Pune Institute of
-            Computer Technology) where I studied Electronics &
-            Telecommunication. During my undergrad, I developed a passion for
-            bridging theory and practice, leading me into full-stack
-            development, AI/ML, and computer vision research.
-          </p>
-          <p>
-            My first professional role was at Dragonfly Financial Technologies,
-            where I honed my backend development skills, working on payment
-            systems and optimizing database queries. This evolved into my
-            current role at Fidelity Information Services (FIS), where I
-            contribute to the Payments team, handling complex international
-            transactions and building robust financial software that serves
-            millions globally. I'm driven by the challenge of solving real-world
-            problems at scale.
-          </p>
-          <p>
-            Beyond work, I'm deeply invested in research—exploring applications
-            of deep learning in healthcare (diabetic retinopathy classification)
-            and speech recognition (lipreading for Indian English). I believe
-            technology should serve humanity, and I'm committed to continuous
-            learning and growth.
-          </p>
-        </div>
-      </section>
-    </main>
-
-    <footer
-      style="
+  <footer style="
         text-align: center;
         padding: 2rem;
         color: var(--color-text-muted);
         font-size: 0.9rem;
-      "
-    >
-      <p>© 2026 [Your Name]. All rights reserved.</p>
-    </footer>
+      ">
+    <p>© 2026 [Your Name]. All rights reserved.</p>
+  </footer>
 
-    <div class="curtain"></div>
-    <script src="/js/main.js" defer></script>
-  </body>
+  <div class="curtain"></div>
+  <script src="/js/main.js" defer></script>
+</body>
+
 </html>

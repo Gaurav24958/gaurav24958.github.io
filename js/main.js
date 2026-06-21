@@ -23,22 +23,126 @@ function initCurtain() {
   const curtain = document.querySelector('.curtain');
   const toggleBtns = document.querySelectorAll('.toggle-btn');
 
+  if (!curtain) return;
+
+  // Detect page direction on load
+  const currentChapter = document.documentElement.getAttribute('data-chapter');
+  const direction = currentChapter === 'ireland' ? 'ind-to-ire' : 'ire-to-ind';
+
+  // Dynamically inject boarding pass HTML
+  curtain.innerHTML = `
+    <div class="boarding-pass">
+      <div class="boarding-header">
+        <span class="pass-title">BOARDING PASS</span>
+        <span class="flight-no">FLIGHT GB2025</span>
+      </div>
+      <div class="boarding-body">
+        <div class="airport-code from">
+          <span class="code">IND</span>
+          <span class="city">India</span>
+        </div>
+        <div class="flight-path">
+          <div class="dotted-line"></div>
+          <div class="airplane-icon">
+            <svg viewBox="0 0 24 24">
+              <path fill="currentColor" d="M21,16V14L13,9V3.5A1.5,1.5 0 0,0 11.5,2A1.5,1.5 0 0,0 10,3.5V9L2,14V16L10,13.5V19L8,20.5V22L11.5,21L15,22V20.5L13,19V13.5L21,16Z" />
+            </svg>
+          </div>
+        </div>
+        <div class="airport-code to">
+          <span class="code">IRE</span>
+          <span class="city">Ireland</span>
+        </div>
+      </div>
+      <div class="boarding-footer">
+        <div class="passenger">
+          <span class="label">PASSENGER</span>
+          <span class="value">GAURAV BOOB</span>
+        </div>
+        <div class="gate">
+          <span class="label">CLASS</span>
+          <span class="value">FIRST</span>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // On page load, only perform entrance transition if we were switching chapters
+  const isSwitching = sessionStorage.getItem('chapter-switching');
+  if (isSwitching === 'true') {
+    sessionStorage.removeItem('chapter-switching');
+    const savedDirection = sessionStorage.getItem('switch-direction') || direction;
+    sessionStorage.removeItem('switch-direction');
+
+    curtain.classList.add(savedDirection);
+
+    // Perform entrance transition by starting from covered state
+    curtain.style.transition = 'none';
+    curtain.classList.add('paused');
+
+    // Force reflow
+    curtain.offsetHeight;
+
+    // Remove the temporary head style to re-enable transitions
+    const tempStyle = document.getElementById('curtain-initial-style');
+    if (tempStyle) tempStyle.remove();
+
+    // Force reflow again
+    curtain.offsetHeight;
+
+    // Wait for a brief pause (600ms) before starting the slide down reveal
+    setTimeout(() => {
+      // Enable transition and slide down by removing paused and adding revealing
+      curtain.style.transition = '';
+      curtain.classList.remove('paused');
+      curtain.classList.add('revealing');
+
+      // Clean up classes after animation completes (2.4s transition)
+      setTimeout(() => {
+        curtain.style.transition = 'none';
+        curtain.classList.remove('revealing');
+        curtain.classList.remove(savedDirection);
+        curtain.removeAttribute('data-target-chapter');
+
+        // Force reflow to instantly place it at -100% (top)
+        curtain.offsetHeight;
+        curtain.style.transition = '';
+      }, 2400);
+    }, 600);
+  } else {
+    // If not switching, make sure the curtain starts off-screen and clean
+    curtain.classList.remove('slide-down', 'revealing', 'paused', 'ind-to-ire', 'ire-to-ind');
+    curtain.removeAttribute('data-target-chapter');
+  }
+
   toggleBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      
+
       const isActive = btn.classList.contains('active');
       if (isActive) return; // Do nothing if clicking active button
 
       const targetUrl = btn.dataset.target;
-      
-      // Slide down the curtain
+
+      // Determine click direction and set session storage
+      const clickDirection = btn.id === 'btn-ireland' ? 'ind-to-ire' : 'ire-to-ind';
+      const targetChapter = btn.id === 'btn-ireland' ? 'ireland' : 'india';
+
+      sessionStorage.setItem('chapter-switching', 'true');
+      sessionStorage.setItem('switch-direction', clickDirection);
+
+      // Pre-set target chapter data attribute to color the curtain immediately without jump
+      curtain.setAttribute('data-target-chapter', targetChapter);
+      curtain.classList.add(clickDirection);
+
+      // Reset curtain transition and slide down
+      curtain.classList.remove('revealing');
       curtain.classList.add('slide-down');
-      
-      // Navigate after 1000ms (matching the smooth animation)
+
+      // Navigate after 2700ms (matching the 2.4s transition + 300ms pause)
       setTimeout(() => {
         window.location.href = targetUrl;
-      }, 1000);
+      }, 2700);
     });
   });
 }
@@ -62,21 +166,8 @@ function initChapter() {
 
 function initDarkMode() {
   const htmlElement = document.documentElement;
-  const themeToggle = document.getElementById('theme-toggle');
-
-  // Read theme from localStorage on load
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  htmlElement.setAttribute('data-theme', savedTheme);
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = htmlElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-
-      htmlElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-    });
-  }
+  htmlElement.setAttribute('data-theme', 'dark');
+  localStorage.setItem('theme', 'dark');
 }
 
 document.addEventListener('DOMContentLoaded', () => {

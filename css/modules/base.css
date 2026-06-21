@@ -1,3 +1,7 @@
+@view-transition {
+  navigation: auto;
+}
+
 html {
   font-family: var(--font-sans);
   font-size: 16px;

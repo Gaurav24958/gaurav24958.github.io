@@ -7,15 +7,23 @@
   transform: translateY(-100%);
   z-index: 9999;
   pointer-events: none;
-  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 2.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .curtain.slide-down {
   transform: translateY(0);
 }
 
-.curtain.slide-up {
+.curtain.revealing {
   transform: translateY(100%);
+}
+
+.curtain.paused {
+  transform: translateY(0);
 }
 
 [data-chapter="india"] .curtain {
@@ -24,4 +32,265 @@
 
 [data-chapter="ireland"] .curtain {
   background: #1B4332;
+}
+
+.curtain[data-target-chapter="india"] {
+  background: #F4A124 !important;
+}
+
+.curtain[data-target-chapter="ireland"] {
+  background: #1B4332 !important;
+}
+
+/* Boarding Pass Styles */
+.boarding-pass {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 420px;
+  padding: 1.5rem;
+  color: white;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+  font-family: var(--font-sans);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.curtain.slide-down .boarding-pass,
+.curtain.revealing .boarding-pass,
+.curtain.paused .boarding-pass {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.boarding-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.75rem;
+}
+
+.pass-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+.flight-no {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.boarding-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.airport-code {
+  display: flex;
+  flex-direction: column;
+}
+
+.airport-code.from {
+  align-items: flex-start;
+}
+
+.airport-code.to {
+  align-items: flex-end;
+}
+
+.airport-code .code {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.airport-code .city {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-top: 0.25rem;
+}
+
+/* Flight Path */
+.flight-path {
+  flex-grow: 1;
+  position: relative;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dotted-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-top: 2px dashed rgba(255, 255, 255, 0.4);
+}
+
+.airplane-icon {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.airplane-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Animation directions */
+/* ─── India to Ireland (IND -> IRE) ─── */
+.curtain.ind-to-ire.slide-down .airplane-icon {
+  animation: flyIndToIreDown 2.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.curtain.ind-to-ire.revealing .airplane-icon {
+  animation: flyIndToIreUp 2.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes flyIndToIreDown {
+  0% {
+    left: 0%;
+    transform: rotate(90deg) scale(0.8);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 50%;
+    transform: translate(-50%) rotate(90deg) scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes flyIndToIreUp {
+  0% {
+    left: 50%;
+    transform: translate(-50%) rotate(90deg) scale(1.1);
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 100%;
+    transform: translate(-100%) rotate(90deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* ─── Ireland to India (IRE -> IND) ─── */
+.curtain.ire-to-ind.slide-down .airplane-icon {
+  animation: flyIreToIndDown 2.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.curtain.ire-to-ind.revealing .airplane-icon {
+  animation: flyIreToIndUp 2.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes flyIreToIndDown {
+  0% {
+    left: 100%;
+    transform: translate(-100%) rotate(-90deg) scale(0.8);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 50%;
+    transform: translate(-50%) rotate(-90deg) scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes flyIreToIndUp {
+  0% {
+    left: 50%;
+    transform: translate(-50%) rotate(-90deg) scale(1.1);
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 0%;
+    transform: rotate(-90deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Boarding Pass Footer */
+.boarding-footer {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+}
+
+.passenger,
+.gate {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.passenger {
+  align-items: flex-start;
+}
+
+.gate {
+  align-items: flex-end;
+}
+
+.boarding-footer .label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  opacity: 0.6;
+}
+
+.boarding-footer .value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Paused state for airplane transition */
+.curtain.ind-to-ire.paused .airplane-icon {
+  left: 50%;
+  transform: translate(-50%) rotate(90deg) scale(1.1);
+  opacity: 1;
+}
+
+.curtain.ire-to-ind.paused .airplane-icon {
+  left: 50%;
+  transform: translate(-50%) rotate(-90deg) scale(1.1);
+  opacity: 1;
 }

@@ -10,10 +10,10 @@
 
 /* ─── India Chapter ─── */
 [data-chapter="india"] {
-  --color-bg:         #FDF6EC;   /* warm cream */
-  --color-bg-alt:     #F5ECD7;   /* deeper warm cream for cards */
-  --color-text:       #1A0F00;   /* near black, warm */
-  --color-text-muted: #6B4F2A;   /* warm muted brown */
+  --color-bg:         #1A0F00;   /* dark warm brown */
+  --color-bg-alt:     #2A1A05;   /* deeper warm brown for cards */
+  --color-text:       #FDF6EC;   /* warm cream text */
+  --color-text-muted: #C49A6C;   /* warm muted brown */
   --color-accent:     #E07B39;   /* terracotta orange */
   --color-accent-2:   #C0392B;   /* deep red secondary */
   --color-border:     #D4B896;   /* warm tan border */
@@ -24,29 +24,14 @@
 
 /* ─── Ireland Chapter ─── */
 [data-chapter="ireland"] {
-  --color-bg:         #F0F4F1;   /* cool off-white */
-  --color-bg-alt:     #E2EBE5;   /* deeper cool green-tinted white */
-  --color-text:       #0D1F15;   /* near black, cool */
-  --color-text-muted: #4A6B55;   /* cool muted green */
+  --color-bg:         #0D1F15;   /* dark cool green */
+  --color-bg-alt:     #152B1E;   /* deeper cool green for cards */
+  --color-text:       #F0F4F1;   /* cool off-white text */
+  --color-text-muted: #7FB898;   /* cool muted green */
   --color-accent:     #2D6A4F;   /* emerald green */
   --color-accent-2:   #1B4332;   /* deep forest green */
   --color-border:     #A8C5B0;   /* cool sage border */
   --color-curtain:    #1B4332;   /* deep green curtain */
   --color-nav-bg:     #0D1F15;   /* dark cool nav */
   --color-nav-text:   #F0F4F1;
-}
-
-/* ─── Dark Mode Overrides ─── */
-[data-chapter="india"][data-theme="dark"] {
-  --color-bg:         #1A0F00;
-  --color-bg-alt:     #2A1A05;
-  --color-text:       #FDF6EC;
-  --color-text-muted: #C49A6C;
-}
-
-[data-chapter="ireland"][data-theme="dark"] {
-  --color-bg:         #0D1F15;
-  --color-bg-alt:     #152B1E;
-  --color-text:       #F0F4F1;
-  --color-text-muted: #7FB898;
 }
