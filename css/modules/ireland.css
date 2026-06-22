@@ -1,21 +1,41 @@
 /* Ireland Chapter — Decorative & Aesthetic Rules Only */
 
-[data-chapter="ireland"] h1 {
-  font-weight: 500;
-  letter-spacing: 0;
-}
-
 [data-chapter="ireland"] .hero-label {
   color: var(--color-accent-2);
-  font-weight: 500;
+  --hero-entrance-y: 12px;
+  animation: heroFadeInUp 500ms var(--ease-out) both;
+  animation-delay: 100ms;
+}
+
+[data-chapter="ireland"] .hero h1 {
+  --hero-entrance-y: 16px;
+  animation: heroFadeInUp 600ms var(--ease-out) both;
+  animation-delay: 250ms;
 }
 
 [data-chapter="ireland"] .hero-sub {
   color: var(--color-text);
+  --hero-entrance-y: 10px;
+  animation: heroFadeInUp 400ms var(--ease-out) both;
+  animation-delay: 400ms;
 }
 
 [data-chapter="ireland"] .hero-desc {
   color: var(--color-text-muted);
+  --hero-entrance-y: 10px;
+  animation: heroFadeInUp 400ms var(--ease-out) both;
+  animation-delay: 550ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-chapter="ireland"] .hero-label,
+  [data-chapter="ireland"] .hero h1,
+  [data-chapter="ireland"] .hero-sub,
+  [data-chapter="ireland"] .hero-desc {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* Cool, Atmospheric Aesthetic */

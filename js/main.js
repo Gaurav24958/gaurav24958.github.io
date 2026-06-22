@@ -189,6 +189,53 @@ function initNavScroll() {
   observer.observe(hero);
 }
 
+function initScrollReveals() {
+  const elements = document.querySelectorAll('main h2, main p, .card, .timeline-item, main li');
+
+  elements.forEach((el) => {
+    // Avoid double revealing or styling elements that shouldn't be revealed
+    if (el.closest('.hero') || el.closest('.site-nav') || el.closest('footer')) return;
+
+    if (el.classList.contains('card') || el.classList.contains('timeline-item')) {
+      el.classList.add('scroll-reveal');
+    } else {
+      // If it is inside a card or timeline-item, it is already animated by its parent container
+      if (el.closest('.card') || el.closest('.timeline-item')) return;
+      el.classList.add('scroll-reveal');
+    }
+  });
+
+  // Group siblings to calculate stagger delays
+  const parents = new Set();
+  document.querySelectorAll('.scroll-reveal').forEach((el) => {
+    parents.add(el.parentElement);
+  });
+
+  parents.forEach((parent) => {
+    const reveals = parent.querySelectorAll(':scope > .scroll-reveal');
+    reveals.forEach((el, index) => {
+      el.style.setProperty('--reveal-delay', `${index * 60}ms`);
+    });
+  });
+
+  // Set up IntersectionObserver
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  document.querySelectorAll('.scroll-reveal').forEach((el) => {
+    observer.observe(el);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initHamburger();
   initCurtain();
@@ -196,4 +243,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initChapter();
   initDarkMode();
   initNavScroll();
+  initScrollReveals();
 });

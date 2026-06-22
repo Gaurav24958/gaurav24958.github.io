@@ -23,7 +23,7 @@ h1 {
   line-height: 1.1;
   margin-bottom: 1rem;
   color: var(--color-text);
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   letter-spacing: -0.02em;
 }
 
@@ -85,7 +85,8 @@ small {
   color: var(--color-text-muted);
 }
 
-code, pre {
+code,
+pre {
   font-family: var(--font-mono);
   background-color: var(--color-bg-alt);
   border-radius: 4px;
@@ -105,4 +106,155 @@ pre {
 pre code {
   padding: 0;
   background: none;
+}
+
+/* ─── Custom Typography & Hover Overrides ─── */
+
+/* Hero Name */
+.hero-text h1,
+.hero-content h1 {
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.02em !important;
+}
+
+@media (min-width: 769px) {
+
+  .hero-text h1,
+  .hero-content h1 {
+    font-size: 5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .hero-text h1,
+  .hero-content h1 {
+    font-size: 2.5rem !important;
+  }
+}
+
+/* Chapter labels */
+.hero-label {
+  font-family: var(--font-mono) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.2em !important;
+  font-size: 0.75rem !important;
+}
+
+/* Role/sub line */
+.hero-sub {
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+}
+
+/* Tagline */
+.hero-desc {
+  font-family: var(--font-sans) !important;
+  font-weight: 300 !important;
+  font-style: italic !important;
+  font-size: 0.95rem !important;
+}
+
+/* Section h2 headings */
+h2 {
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+  font-size: 1.5rem !important;
+}
+
+/* Body prose */
+p,
+.prose {
+  font-family: var(--font-sans) !important;
+  font-weight: 400 !important;
+  font-size: 1rem !important;
+  line-height: 1.75 !important;
+}
+
+/* Stats numbers (adventures page) */
+.stat-value {
+  font-family: var(--font-heading) !important;
+  font-weight: 500 !important;
+}
+
+@media (min-width: 769px) {
+  .stat-value {
+    font-size: 4.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .stat-value {
+    font-size: 2.75rem !important;
+  }
+}
+
+/* Stack tags / dates / labels */
+.tag,
+.timeline-meta,
+.card-link,
+.stat-label {
+  font-family: var(--font-mono) !important;
+  font-size: 0.75rem !important;
+}
+
+/* Hover transitions (Snappy 150ms ease off, instant 0ms on) */
+.card {
+  transition: transform 150ms ease, box-shadow 150ms ease !important;
+}
+
+.card:hover {
+  transform: scale(1.015) !important;
+  box-shadow: var(--shadow-card-hover) !important;
+  transition: transform 0ms, box-shadow 0ms !important;
+  transition-delay: 0ms !important;
+}
+
+.site-nav a,
+.nav-links a,
+.nav-left a,
+.nav-right a,
+.nav-mobile-menu a {
+  transition: opacity 150ms ease !important;
+}
+
+.site-nav a:hover,
+.nav-links a:hover,
+.nav-left a:hover,
+.nav-right a:hover,
+.nav-mobile-menu a:hover {
+  opacity: 0.7 !important;
+  transition: opacity 0ms !important;
+  transition-delay: 0ms !important;
+}
+
+/* Scroll reveals */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: transform, opacity;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero animation keyframes */
+@keyframes heroFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(var(--hero-entrance-y, 12px));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

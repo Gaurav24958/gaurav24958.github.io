@@ -1,37 +1,63 @@
 :root {
-  --font-heading:      'EB Garamond', Georgia, serif;
-  --font-sans:         'Inter', system-ui, sans-serif;
-  --font-mono:         'IBM Plex Mono', monospace;
-  --max-width:         960px;
-  --transition:        300ms ease;
-  --shadow-card:       0 2px 8px rgba(0,0,0,0.06);
-  --shadow-card-hover: 0 8px 28px rgba(0,0,0,0.12);
+  --font-heading: 'EB Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --max-width: 960px;
+  --transition: 300ms ease;
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 8px 28px rgba(0, 0, 0, 0.12);
+  --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-snappy: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-base: 250ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --duration-base: 0.01ms; }
 }
 
 /* ─── India Chapter ─── */
 [data-chapter="india"] {
-  --color-bg:         #1A0F00;   /* dark warm brown */
-  --color-bg-alt:     #2A1A05;   /* deeper warm brown for cards */
-  --color-text:       #FDF6EC;   /* warm cream text */
-  --color-text-muted: #C49A6C;   /* warm muted brown */
-  --color-accent:     #E07B39;   /* terracotta orange */
-  --color-accent-2:   #C0392B;   /* deep red secondary */
-  --color-border:     #D4B896;   /* warm tan border */
-  --color-curtain:    #F4A124;   /* saffron curtain */
-  --color-nav-bg:     #1A0F00;   /* dark warm nav */
-  --color-nav-text:   #FDF6EC;
+  --color-bg: #1A0F00;
+  /* dark warm brown */
+  --color-bg-alt: #2A1A05;
+  /* deeper warm brown for cards */
+  --color-text: #FDF6EC;
+  /* warm cream text */
+  --color-text-muted: #C49A6C;
+  /* warm muted brown */
+  --color-accent: #E07B39;
+  /* terracotta orange */
+  --color-accent-2: #C0392B;
+  /* deep red secondary */
+  --color-border: #D4B896;
+  /* warm tan border */
+  --color-curtain: #F4A124;
+  /* saffron curtain */
+  --color-nav-bg: #1A0F00;
+  /* dark warm nav */
+  --color-nav-text: #FDF6EC;
 }
 
 /* ─── Ireland Chapter ─── */
 [data-chapter="ireland"] {
-  --color-bg:         #0D1F15;   /* dark cool green */
-  --color-bg-alt:     #152B1E;   /* deeper cool green for cards */
-  --color-text:       #F0F4F1;   /* cool off-white text */
-  --color-text-muted: #7FB898;   /* cool muted green */
-  --color-accent:     #2D6A4F;   /* emerald green */
-  --color-accent-2:   #1B4332;   /* deep forest green */
-  --color-border:     #A8C5B0;   /* cool sage border */
-  --color-curtain:    #1B4332;   /* deep green curtain */
-  --color-nav-bg:     #0D1F15;   /* dark cool nav */
-  --color-nav-text:   #F0F4F1;
+  --color-bg: #0D1F15;
+  /* dark cool green */
+  --color-bg-alt: #152B1E;
+  /* deeper cool green for cards */
+  --color-text: #F0F4F1;
+  /* cool off-white text */
+  --color-text-muted: #7FB898;
+  /* cool muted green */
+  --color-accent: #2D6A4F;
+  /* emerald green */
+  --color-accent-2: #1B4332;
+  /* deep forest green */
+  --color-border: #A8C5B0;
+  /* cool sage border */
+  --color-curtain: #1B4332;
+  /* deep green curtain */
+  --color-nav-bg: #0D1F15;
+  /* dark cool nav */
+  --color-nav-text: #F0F4F1;
 }
