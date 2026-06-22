@@ -124,13 +124,20 @@
     font-size: 2.5rem;
   }
 
-  /* Ireland Mobile Hero */
-  [data-chapter="ireland"] .site-nav {
-    position: absolute;
+  /* Ireland Mobile Hero — sticky transparent nav overlaying hero */
+  [data-chapter="ireland"] body:has(.hero) .site-nav {
+    position: sticky;
+    top: 0;
     background-color: transparent;
     box-shadow: none;
-    width: 100%;
+    margin-bottom: calc(-1 * var(--nav-height, 70px));
     z-index: 100;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  [data-chapter="ireland"] body:has(.hero) .site-nav.nav-scrolled {
+    background-color: var(--color-nav-bg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
   [data-chapter="ireland"] .hero {

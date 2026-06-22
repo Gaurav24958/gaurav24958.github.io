@@ -170,10 +170,30 @@ function initDarkMode() {
   localStorage.setItem('theme', 'dark');
 }
 
+function initNavScroll() {
+  const hero = document.querySelector('.hero');
+  const nav = document.querySelector('.site-nav');
+  if (!hero || !nav) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        nav.classList.remove('nav-scrolled');
+      } else {
+        nav.classList.add('nav-scrolled');
+      }
+    },
+    { threshold: 0.1 }
+  );
+
+  observer.observe(hero);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initHamburger();
   initCurtain();
   initTabs();
   initChapter();
   initDarkMode();
+  initNavScroll();
 });
