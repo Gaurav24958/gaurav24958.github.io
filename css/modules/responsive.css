@@ -251,6 +251,12 @@
   .photo-grid img {
     height: 150px;
   }
+
+  /* Footer responsive padding */
+  footer,
+  .site-footer {
+    padding: 1.75rem 1.5rem 1.5rem !important;
+  }
 }
 
 /* Breakpoint: 480px to 768px (Large Phones) */
@@ -424,5 +430,11 @@
   .tag {
     font-size: 0.75rem;
     padding: 0.3rem 0.6rem;
+  }
+
+  /* Footer mobile responsive padding */
+  footer,
+  .site-footer {
+    padding: 1.75rem 1rem 1.5rem !important;
   }
 }
