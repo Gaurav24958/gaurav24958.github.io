@@ -92,10 +92,26 @@
 
 
 
+/* Navigation Overlay for Ireland Landing Page */
+[data-chapter="ireland"] body:has(.hero) .site-nav {
+  position: sticky;
+  top: 0;
+  background-color: transparent;
+  box-shadow: none;
+  margin-bottom: calc(-1 * var(--nav-height, 70px));
+  z-index: 100;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-chapter="ireland"] body:has(.hero) .site-nav.nav-scrolled {
+  background-color: var(--color-nav-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 /* Video Hero Rules */
 [data-chapter="ireland"] .hero {
   position: relative;
-  height: calc(100vh - var(--nav-height, 70px));
+  height: 100vh;
   overflow: hidden;
 }
 
