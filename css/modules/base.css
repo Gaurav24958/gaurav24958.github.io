@@ -258,3 +258,53 @@ p,
     transform: translateY(0);
   }
 }
+
+/* Footer (similar to pracha.me) */
+footer,
+.site-footer {
+  max-width: var(--max-width);
+  margin: 3rem auto 0;
+  padding: 1.75rem 2rem 1.5rem;
+  background: transparent !important;
+  border-top: 1px solid var(--color-border) !important;
+  text-align: left !important;
+  box-sizing: border-box;
+}
+
+.footer-links {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 0.25rem 0.5rem !important;
+  margin-bottom: 0.6rem !important;
+}
+
+.footer-links a {
+  color: var(--color-text-muted) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.75rem !important;
+  text-decoration: none !important;
+  opacity: 0.85 !important;
+  transition: opacity 150ms ease, color 150ms ease !important;
+}
+
+.footer-links a:hover {
+  color: var(--color-text) !important;
+  opacity: 1 !important;
+}
+
+.footer-sep {
+  color: var(--color-text-muted) !important;
+  opacity: 0.5 !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.75rem !important;
+}
+
+.copyright {
+  font-family: var(--font-mono) !important;
+  font-size: 0.75rem !important;
+  color: var(--color-text-muted) !important;
+  opacity: 0.85 !important;
+  text-align: left !important;
+  margin-top: 0.25rem !important;
+}
