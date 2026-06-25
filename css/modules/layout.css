@@ -26,6 +26,12 @@
   margin-bottom: 1rem;
 }
 
+.about-prose p {
+  text-align: justify;
+  text-justify: inter-word;
+  text-wrap: pretty;
+}
+
 .prose + .prose {
   margin-top: 2rem;
 }
