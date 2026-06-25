@@ -5,6 +5,7 @@
   --hero-entrance-y: 12px;
   animation: heroFadeInUp 500ms var(--ease-out) both;
   animation-delay: 100ms;
+  font-weight: 800 !important;
 }
 
 [data-chapter="india"] .hero h1 {
@@ -28,6 +29,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   [data-chapter="india"] .hero-label,
   [data-chapter="india"] .hero h1,
   [data-chapter="india"] .hero-sub,
@@ -127,6 +129,7 @@
   justify-content: center;
   padding: 4rem;
   z-index: 2;
+  text-align: center;
 }
 
 [data-chapter="india"] .hero-photo {
@@ -138,7 +141,7 @@
   /* Aligns the image towards the text on the left */
   justify-content: flex-start;
   /* Uses min() to ensure the image doesn't get too large vertically */
-  --image-scale: min(80%, 60vh); 
+  --image-scale: min(80%, 60vh);
 }
 
 [data-chapter="india"] .hero-photo img {
@@ -163,10 +166,13 @@
   pointer-events: none;
   z-index: 2;
   background:
-    /* top */ linear-gradient(to bottom, var(--color-bg) 0%, rgba(0,0,0,0) 20%),
-    /* bottom */ linear-gradient(to top, var(--color-bg) 0%, rgba(0,0,0,0) 20%),
-    /* left */ linear-gradient(to right, var(--color-bg) 0%, rgba(0,0,0,0) 20%),
-    /* right */ linear-gradient(to left, var(--color-bg) 0%, rgba(0,0,0,0) 20%);
+    /* top */
+    linear-gradient(to bottom, var(--color-bg) 0%, rgba(0, 0, 0, 0) 20%),
+    /* bottom */
+    linear-gradient(to top, var(--color-bg) 0%, rgba(0, 0, 0, 0) 20%),
+    /* left */
+    linear-gradient(to right, var(--color-bg) 0%, rgba(0, 0, 0, 0) 20%),
+    /* right */
+    linear-gradient(to left, var(--color-bg) 0%, rgba(0, 0, 0, 0) 20%);
   background-blend-mode: normal;
 }
-

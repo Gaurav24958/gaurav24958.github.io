@@ -5,6 +5,7 @@
   --hero-entrance-y: 12px;
   animation: heroFadeInUp 500ms var(--ease-out) both;
   animation-delay: 100ms;
+  font-weight: 800 !important;
 }
 
 [data-chapter="ireland"] .hero h1 {
@@ -28,6 +29,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   [data-chapter="ireland"] .hero-label,
   [data-chapter="ireland"] .hero h1,
   [data-chapter="ireland"] .hero-sub,
