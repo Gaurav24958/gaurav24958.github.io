@@ -236,6 +236,273 @@ function initScrollReveals() {
   });
 }
 
+function initLifePage() {
+  if (window.innerWidth <= 768) return;
+
+  const track = document.querySelector('.life-track');
+  if (!track) return;
+
+  const container = document.querySelector('.life-scroll-container');
+  const panels = document.querySelectorAll('.chapter-panel');
+  const nav = document.getElementById('life-nav');
+  const navDot = document.getElementById('nav-dot');
+  const labelLeft = document.getElementById('nav-label-left');
+  const labelRight = document.getElementById('nav-label-right');
+
+  if (!container || panels.length === 0 || !nav || !navDot || !labelLeft || !labelRight) return;
+
+  const chapters = [
+    { name: 'Childhood' },
+    { name: 'School' },
+    { name: 'College' },
+    { name: 'Work' },
+    { name: 'Ireland' }
+  ];
+
+  // State
+  let targetX = 0;
+  let currentX = 0;
+  let dotLeft = 0;
+  let displayedChapterIndex = 0;
+  let isTransitioning = false;
+
+  // Set initial labels
+  labelLeft.textContent = chapters[0].name;
+  labelRight.textContent = chapters[1].name;
+
+  // Mobile Intersection Observer for scroll reveals
+  const mobileObserver = new IntersectionObserver((entries) => {
+    if (window.innerWidth <= 768) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-active');
+        }
+      });
+    }
+  }, {
+    threshold: 0.15
+  });
+
+  panels.forEach(panel => {
+    mobileObserver.observe(panel);
+  });
+
+  // Main scroll loop
+  function updateScroll() {
+    if (window.innerWidth <= 768) {
+      // Mobile cleanup
+      track.style.transform = '';
+      nav.style.opacity = '';
+      requestAnimationFrame(updateScroll);
+      return;
+    }
+
+    const rect = container.getBoundingClientRect();
+    const scrollTop = window.scrollY;
+
+    // Absolute position of the container top
+    const containerTop = rect.top + scrollTop;
+    const scrollRange = rect.height - window.innerHeight;
+    const scrollOffset = scrollTop - containerTop;
+
+    // Calculate progress (0 to 1)
+    let progress = scrollOffset / scrollRange;
+    progress = Math.max(0, Math.min(1, progress));
+
+    // Show/hide navigation based on scroll offset (hide during intro section and when footer is visible)
+    if (scrollOffset < 0 || progress >= 0.99) {
+      nav.style.opacity = '0';
+      nav.style.pointerEvents = 'none';
+    } else {
+      nav.style.opacity = '1';
+      nav.style.pointerEvents = 'auto';
+    }
+
+    // Calculate target translation (translates left by 400vw)
+    const maxTranslate = (panels.length - 1) * window.innerWidth;
+    targetX = -progress * maxTranslate;
+
+    // Lerp translation
+    currentX += (targetX - currentX) * 0.08;
+    track.style.transform = `translateX(${currentX}px)`;
+
+    // Calculate current chapter index
+    const chapterHeight = window.innerHeight;
+    const currentIdx = Math.max(0, Math.min(panels.length - 1, Math.floor(scrollOffset / chapterHeight)));
+
+    // Trigger blur transition if chapter index changes
+    if (currentIdx !== displayedChapterIndex && !isTransitioning) {
+      isTransitioning = true;
+      const labelsWrapper = nav.querySelector('.life-nav-labels');
+      if (labelsWrapper) {
+        labelsWrapper.classList.add('is-blurring');
+      }
+
+      setTimeout(() => {
+        displayedChapterIndex = currentIdx;
+
+        // Update labels
+        labelLeft.textContent = chapters[displayedChapterIndex].name;
+        labelRight.textContent = displayedChapterIndex < chapters.length - 1 ? chapters[displayedChapterIndex + 1].name : '';
+
+        // Unblur labels
+        if (labelsWrapper) {
+          labelsWrapper.classList.remove('is-blurring');
+        }
+
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 250);
+      }, 250);
+    }
+
+    // Lerp dot position smoothly across the entire range
+    const targetDotProgress = progress * 100;
+    dotLeft += (targetDotProgress - dotLeft) * 0.1;
+    nav.style.setProperty('--dot-progress', `${dotLeft}%`);
+
+    // Trigger entrance animation for panels when they enter the viewport
+    panels.forEach((panel, idx) => {
+      const panelRect = panel.getBoundingClientRect();
+      if (panelRect.left < window.innerWidth * 0.8 && panelRect.right > window.innerWidth * 0.2) {
+        panel.classList.add('is-active');
+      }
+    });
+
+    requestAnimationFrame(updateScroll);
+  }
+
+  // Start loop
+  requestAnimationFrame(updateScroll);
+}
+
+function initLifePageMobile() {
+  if (window.innerWidth > 768) return;
+
+  const container = document.querySelector('.life-scroll-container');
+  const panels = document.querySelectorAll('.chapter-panel');
+  if (!container || panels.length === 0) return;
+
+  const chapters = [
+    { name: 'Childhood' },
+    { name: 'School' },
+    { name: 'College' },
+    { name: 'Work' },
+    { name: 'Ireland' }
+  ];
+
+  // Set height for scrolling
+  const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 70;
+  container.style.height = `${(window.innerHeight - navHeight) * (panels.length + 1) + navHeight}px`;
+
+  // Inject horizontal mobile progress bar dynamically
+  if (!document.querySelector('.life-nav-mobile')) {
+    const mobileNavHTML = `
+      <div class="life-nav-mobile" aria-hidden="true">
+        <div class="life-nav-mobile-labels">
+          <span class="life-nav-mobile-label left" id="nav-label-left-mobile">Childhood</span>
+          <span class="life-nav-mobile-label right" id="nav-label-right-mobile">School</span>
+        </div>
+        <div class="life-nav-mobile__track">
+          <div class="life-nav-mobile-dot" id="nav-dot-mobile"></div>
+        </div>
+      </div>
+    `;
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = mobileNavHTML.trim();
+    document.body.appendChild(tempDiv.firstChild);
+  }
+
+  const navMobile = document.querySelector('.life-nav-mobile');
+
+  let activeIndex = -1;
+
+  // Set initial panel states
+  panels.forEach((panel, i) => {
+    if (i === 0) {
+      panel.classList.add('is-active');
+      panel.classList.remove('is-above', 'is-below');
+    } else {
+      panel.classList.add('is-below');
+      panel.classList.remove('is-active', 'is-above');
+    }
+  });
+
+  function handleMobileScroll() {
+    if (window.innerWidth > 768) return;
+
+    const scrollTop = window.scrollY;
+    const rect = container.getBoundingClientRect();
+    const scrollOffset = navHeight - rect.top;
+    const panelScrollHeight = window.innerHeight - navHeight;
+    const scrollRange = rect.height - (window.innerHeight - navHeight);
+
+    let progress = scrollOffset / scrollRange;
+    progress = Math.max(0, Math.min(1, progress));
+
+    const chapterIndex = Math.max(0, Math.min(panels.length - 1, Math.floor(scrollOffset / panelScrollHeight)));
+
+    if (chapterIndex !== activeIndex) {
+      panels.forEach((panel, i) => {
+        if (i < chapterIndex) {
+          panel.classList.add('is-above');
+          panel.classList.remove('is-active', 'is-below');
+        } else if (i === chapterIndex) {
+          panel.classList.add('is-active');
+          panel.classList.remove('is-above', 'is-below');
+        } else {
+          panel.classList.add('is-below');
+          panel.classList.remove('is-active', 'is-above');
+        }
+      });
+
+      // Update mobile labels
+      const labelLeftMobile = document.getElementById('nav-label-left-mobile');
+      const labelRightMobile = document.getElementById('nav-label-right-mobile');
+      if (labelLeftMobile && labelRightMobile) {
+        const labelsWrapperMobile = document.querySelector('.life-nav-mobile-labels');
+        if (labelsWrapperMobile) {
+          labelsWrapperMobile.classList.add('is-blurring');
+        }
+
+        setTimeout(() => {
+          labelLeftMobile.textContent = chapters[chapterIndex].name;
+          labelRightMobile.textContent = chapterIndex < chapters.length - 1 ? chapters[chapterIndex + 1].name : '';
+
+          if (labelsWrapperMobile) {
+            labelsWrapperMobile.classList.remove('is-blurring');
+          }
+        }, 200);
+      }
+
+      activeIndex = chapterIndex;
+    }
+
+    // Update dot position
+    if (navMobile) {
+      const dotProgress = progress * 100;
+      navMobile.style.setProperty('--dot-progress-mobile', `${dotProgress}%`);
+    }
+
+    // Show/hide navigation based on boundaries
+    if (navMobile) {
+      if (scrollOffset < 0 || progress >= 0.99) {
+        navMobile.style.opacity = '0';
+        navMobile.style.pointerEvents = 'none';
+      } else {
+        navMobile.style.opacity = '1';
+        navMobile.style.pointerEvents = 'auto';
+      }
+    }
+  }
+
+  // Listen to scroll events
+  window.addEventListener('scroll', handleMobileScroll, { passive: true });
+  
+  // Call initially to set correct state
+  handleMobileScroll();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initHamburger();
   initCurtain();
@@ -244,4 +511,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initDarkMode();
   initNavScroll();
   initScrollReveals();
+  initLifePage();
+  initLifePageMobile();
 });

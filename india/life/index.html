@@ -1,11 +1,12 @@
 <!doctype html>
-<html data-chapter="india">
+<html data-chapter="india" class="life-page">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gaurav Boob — Life | India</title>
   <link rel="stylesheet" href="/css/style.css?v=20260602" />
+  <link rel="stylesheet" href="/css/life.css?v=20260624" />
 </head>
 
 <body>
@@ -53,38 +54,292 @@
     </div>
   </nav>
 
-  <main class="container">
-    <section style="margin: 3rem 0">
-      <h1>Life</h1>
-
-      <div class="prose">
-        <p>
-          Beyond code, I'm a passionate photographer and creative thinker. I
-          find inspiration in everyday moments — the way light filters through
-          morning clouds, the vibrant chaos of Mumbai streets, the quiet
-          solitude of mountain landscapes. Photography has become my
-          meditation, a way to slow down and truly observe the world.
-        </p>
-        <p>
-          I'm equally passionate about fitness and wellness. Regular gym
-          sessions help me maintain mental clarity and physical discipline
-          that inevitably seeps into my engineering work. I believe in a
-          holistic approach to life — balancing intellectual pursuits with
-          physical activity and creative expression. Whether it's hiking,
-          photography, or experimenting with new cuisines, I'm always
-          exploring ways to grow as a person.
-        </p>
+  <!-- SECTION 1 — Static introduction (normal scroll, full width) -->
+  <main class="life-intro">
+    <h1>Life</h1>
+    <p>
+      This page is not a résumé. It is a journey through the
+      moments and chapters that shaped who I am.
+    </p>
+    <!-- FIXED NAVIGATION SYSTEM -->
+    <div class="life-nav" id="life-nav">
+      <div class="life-nav-labels">
+        <span class="life-nav-label left" id="nav-label-left">Childhood</span>
+        <span class="life-nav-label right" id="nav-label-right">School</span>
       </div>
-
-      <div class="photo-grid">
-        <img src="/assets/india/life/photo1.jpg" alt="Photography moment" />
-        <img src="/assets/india/life/photo2.jpg" alt="Life exploration" />
-        <img src="/assets/india/life/photo3.jpg" alt="Creative pursuits" />
-        <img src="/assets/india/life/photo4.jpg" alt="Personal interests" />
+      <div class="life-nav-progress-line">
+        <div class="life-nav-dot" id="nav-dot"></div>
       </div>
-    </section>
+    </div>
   </main>
 
+
+
+  <!-- SECTION 2 — Immersive chapter storytelling -->
+  <div class="life-scroll-container">
+    <div class="life-sticky-viewport">
+      <div class="life-track">
+
+        <!-- Chapter 1: Childhood -->
+        <section class="chapter-panel" data-chapter-index="0" data-chapter-name="Childhood">
+          <div class="collage-column">
+            <div class="collage-grid-1">
+              <div class="collage-item collage-img-1">
+                <div class="collage-placeholder">
+                  <span>Photo 1</span>
+                  <img src="" alt="Childhood photo 1" />
+                </div>
+              </div>
+              <div class="collage-item collage-img-2">
+                <div class="collage-placeholder">
+                  <span>Photo 2</span>
+                  <img src="" alt="Childhood photo 2" />
+                </div>
+              </div>
+              <div class="collage-item collage-img-3">
+                <div class="collage-placeholder">
+                  <span>Photo 3</span>
+                  <img src="" alt="Childhood photo 3" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content-column">
+            <div class="chapter-content-inner">
+              <div class="mobile-chapter-counter">01 / 05</div>
+              <p class="chapter-label animate-label">Chapter 1</p>
+              <p class="chapter-year animate-year">1997 — 2011</p>
+              <h2 class="chapter-title animate-title">Childhood</h2>
+              <p class="chapter-story animate-story">
+                Growing up in Pune, surrounded by family and early curiosity. A childhood of exploring the outdoors,
+                reading books, and asking questions about how things work. Early memories of playing cricket on the
+                streets and learning the value of patience and persistence. This early phase of my life was marked by an
+                insatiable curiosity about physical devices and mechanics. I spent countless afternoons building
+                makeshift structures, reading regional literature, and learning how everyday systems function, laying a
+                quiet but permanent foundation for my technical future.
+              </p>
+              <div class="chapter-memories">
+                <div class="memory-fragment animate-memory">Playing cricket in the alley until the streetlights came on.
+                </div>
+                <div class="memory-fragment animate-memory">Taking apart old toys to see the gears and motors inside.
+                </div>
+                <div class="memory-fragment animate-memory">Summer trips to my grandparents' house, filled with
+                  storytelling.</div>
+              </div>
+              <p class="chapter-reflection animate-reflection">Curiosity is the seed of all growth.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Chapter 2: School -->
+        <section class="chapter-panel" data-chapter-index="1" data-chapter-name="School">
+          <div class="collage-column">
+            <div class="collage-grid-2">
+              <div class="collage-item collage-img-1">
+                <div class="collage-placeholder">
+                  <span>Photo 1</span>
+                  <img src="" alt="School photo 1" />
+                </div>
+              </div>
+              <div class="collage-item collage-img-2">
+                <div class="collage-placeholder">
+                  <span>Photo 2</span>
+                  <img src="" alt="School photo 2" />
+                </div>
+              </div>
+              <div class="collage-item collage-img-3">
+                <div class="collage-placeholder">
+                  <span>Photo 3</span>
+                  <img src="" alt="School photo 3" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content-column">
+            <div class="chapter-content-inner">
+              <div class="mobile-chapter-counter">02 / 05</div>
+              <p class="chapter-label animate-label">Chapter 2</p>
+              <p class="chapter-year animate-year">2011 — 2015</p>
+              <h2 class="chapter-title animate-title">School</h2>
+              <p class="chapter-story animate-story">
+                The school years were defined by competitive sports, growing friendships, and my first real introduction
+                to technology. PICT and PICT Model School brought a competitive environment. Here, sports like cricket
+                taught me teamwork, and early computer classes opened a window into what the future could hold. The
+                balance between running track, participating in debates, and exploring the early days of personal
+                computers defined my adolescent years. I quickly realized that solving analytical problems brought me
+                the same rush as winning a tight cricket match, sparking a lifelong interest in engineering and
+                competitive problem solving.
+              </p>
+              <div class="chapter-memories">
+                <div class="memory-fragment animate-memory">Winning the inter-school athletic meet in a close finish.
+                </div>
+                <div class="memory-fragment animate-memory">Writing my first line of code on a dusty lab computer.</div>
+                <div class="memory-fragment animate-memory">Long bicycle rides with friends after school hours.</div>
+              </div>
+              <p class="chapter-reflection animate-reflection">Competition breeds excellence; friendship builds
+                character.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Chapter 3: College -->
+        <section class="chapter-panel" data-chapter-index="2" data-chapter-name="College">
+          <div class="collage-column">
+            <div class="collage-grid-3">
+              <div class="collage-item collage-img-1">
+                <div class="collage-placeholder">
+                  <span>Photo 1</span>
+                  <img src="" alt="College photo 1" />
+                </div>
+              </div>
+              <div class="collage-item collage-img-2">
+                <div class="collage-placeholder">
+                  <span>Photo 2</span>
+                  <img src="" alt="College photo 2" />
+                </div>
+              </div>
+              <div class="collage-item collage-img-3">
+                <div class="collage-placeholder">
+                  <span>Photo 3</span>
+                  <img src="" alt="College photo 3" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content-column">
+            <div class="chapter-content-inner">
+              <div class="mobile-chapter-counter">03 / 05</div>
+              <p class="chapter-label animate-label">Chapter 3</p>
+              <p class="chapter-year animate-year">2015 — 2019</p>
+              <h2 class="chapter-title animate-title">College</h2>
+              <p class="chapter-story animate-story">
+                Studying Electronics & Telecommunication at PICT. Undergraduate hostel life was a crucible of
+                independence. It was a period of intense coding, academic projects, late-night tea stalls, and
+                discovering two lifelong pursuits: fitness at the local gym and capturing the world through a camera
+                lens. The academic rigor of engineering was offset by the collaborative energy of hostel living, where
+                discussions on distributed computing merged with debates about philosophy. During this time, photography
+                taught me visual composition and patience, while regular workouts instilled a deep sense of discipline
+                and mental resilience that remains central to my work ethic.
+              </p>
+              <div class="chapter-memories">
+                <div class="memory-fragment animate-memory">Late-night coding sessions fueled by cutting chai and street
+                  food.</div>
+                <div class="memory-fragment animate-memory">The thrill of getting our final-year project prototype to
+                  work.</div>
+                <div class="memory-fragment animate-memory">First DSLR camera purchase and exploring Pune's heritage
+                  structures.</div>
+              </div>
+              <p class="chapter-reflection animate-reflection">Independence is learning to find your own path.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Chapter 4: Work -->
+        <section class="chapter-panel" data-chapter-index="3" data-chapter-name="Work">
+          <div class="collage-column">
+            <div class="collage-grid-4">
+              <div class="collage-item collage-img-1">
+                <div class="collage-placeholder">
+                  <span>Photo 1</span>
+                  <img src="" alt="Work photo 1" />
+                </div>
+              </div>
+              <div class="collage-item collage-img-2">
+                <div class="collage-placeholder">
+                  <span>Photo 2</span>
+                  <img src="" alt="Work photo 2" />
+                </div>
+              </div>
+              <div class="collage-item collage-img-3">
+                <div class="collage-placeholder">
+                  <span>Photo 3</span>
+                  <img src="" alt="Work photo 3" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content-column">
+            <div class="chapter-content-inner">
+              <div class="mobile-chapter-counter">04 / 05</div>
+              <p class="chapter-label animate-label">Chapter 4</p>
+              <p class="chapter-year animate-year">2019 — 2025</p>
+              <h2 class="chapter-title animate-title">Work</h2>
+              <p class="chapter-story animate-story">
+                Entering the professional world at Dragonfly Financial Technologies, and then moving to Fidelity
+                Information Services (FIS). Six years of real-world software engineering, optimizing payment pipelines,
+                and learning the operational mechanics of systems at scale. This journey and the thirst for deeper
+                research ultimately pushed me toward pursuing an MSc in Dublin. Throughout these professional
+                milestones, I had the privilege of tackling mission-critical transactional services, scaling core
+                database layouts, and collaborating with cross-functional global teams. These years helped transition my
+                perspective from writing isolated code fragments to architecting robust, highly reliable end-to-end
+                industrial software solutions.
+              </p>
+              <div class="chapter-memories">
+                <div class="memory-fragment animate-memory">Deploying my first major feature into a production system.
+                </div>
+                <div class="memory-fragment animate-memory">Mentoring junior engineers and leading system design
+                  discussions.</div>
+                <div class="memory-fragment animate-memory">Receiving the acceptance email for my Master's program.
+                </div>
+              </div>
+              <p class="chapter-reflection animate-reflection">Building is the ultimate form of understanding.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Chapter 5: Ireland -->
+        <section class="chapter-panel" data-chapter-index="4" data-chapter-name="Ireland">
+          <div class="collage-column">
+            <div class="collage-grid-5">
+              <div class="collage-item collage-img-1">
+                <div class="collage-placeholder">
+                  <span>Photo 1</span>
+                  <img src="" alt="Ireland photo 1" />
+                </div>
+              </div>
+              <div class="collage-item collage-img-2">
+                <div class="collage-placeholder">
+                  <span>Photo 2</span>
+                  <img src="" alt="Ireland photo 2" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content-column">
+            <div class="chapter-content-inner">
+              <div class="mobile-chapter-counter">05 / 05</div>
+              <p class="chapter-label animate-label">Chapter 5</p>
+              <p class="chapter-year animate-year">2025 →</p>
+              <h2 class="chapter-title animate-title">Ireland</h2>
+              <p class="chapter-story animate-story">
+                A new country, a historic university, and a fresh beginning at Trinity College Dublin. Moving to Dublin
+                to pursue my MSc in Computer Science. Diving deep into advanced research in machine learning,
+                distributed systems, and discovering the beauty of the Irish landscape and culture. Trinity represents a
+                clean slate and a return to academic inquiry. Here, surrounded by centuries of scholarly history, I am
+                exploring deep learning methodologies and real-world system optimization. Walking along the cobblestone
+                pathways or hiking the scenic trails of Howth, I find myself inspired by this new chapter, eager to
+                contribute to the global technology landscape.
+              </p>
+              <div class="chapter-memories">
+                <div class="memory-fragment animate-memory">Walking through the front gates of Trinity College on day
+                  one.</div>
+                <div class="memory-fragment animate-memory">The contrast of cold Irish rain with the warm, historic
+                  libraries.</div>
+                <div class="memory-fragment animate-memory">Exploring the cliffs of Howth and capturing the green
+                  landscape.</div>
+              </div>
+              <p class="chapter-reflection animate-reflection">The journey continues.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- SECTION 3 — Static footer (normal, same as other pages) -->
   <footer class="site-footer">
     <div class="footer-links">
       <a href="https://github.com/Gaurav24958" target="_blank" rel="noopener">GitHub</a>
@@ -97,7 +352,7 @@
   </footer>
 
   <div class="curtain"></div>
-  <script src="/js/main.js?v=20260602" defer></script>
+  <script src="/js/main.js?v=20260624" defer></script>
 </body>
 
 </html>

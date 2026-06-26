@@ -255,7 +255,247 @@
   /* Footer responsive padding */
   footer,
   .site-footer {
-    padding: 1.75rem 1.5rem 1.5rem !important;
+    padding: 1.75rem 2rem 1.5rem !important;
+  }
+
+  /* About Me line height adjustment */
+  .about-prose {
+    line-height: 1.25 !important;
+  }
+
+  /* ─── Life Page Mobile Overrides ─── */
+  .life-page .life-intro {
+    padding-top: 3rem !important;
+  }
+
+  .life-page .life-intro h1 {
+    margin-bottom: 1rem !important;
+  }
+
+  .life-page .life-scroll-container {
+    position: relative !important;
+  }
+
+  .life-page .life-sticky-viewport {
+    position: sticky !important;
+    top: var(--nav-height) !important;
+    height: calc(100vh - var(--nav-height)) !important;
+    width: 100vw !important;
+    overflow: hidden !important;
+    z-index: 10 !important;
+  }
+
+  .life-page .life-track {
+    position: relative !important;
+    height: calc(100vh - var(--nav-height)) !important;
+    width: 100vw !important;
+    overflow: hidden !important;
+    display: block !important;
+    transform: none !important;
+  }
+
+  .life-page .chapter-panel {
+    position: absolute !important;
+    top: 3.5rem !important;
+    left: 1rem !important;
+    width: calc(100vw - 2rem) !important;
+    height: calc(100vh - var(--nav-height) - 4.75rem) !important;
+    will-change: transform !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    background: var(--color-bg) !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: 12px !important;
+    transform: translateY(100vh);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1),
+      opacity 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  /* Outgoing card exits UPWARD: ease-in duration 350ms */
+  .life-page .chapter-panel.is-above {
+    transform: translateY(-100vh) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: transform 350ms cubic-bezier(0.4, 0, 1, 1),
+      opacity 350ms cubic-bezier(0.4, 0, 1, 1) !important;
+  }
+
+  /* Incoming card enters FROM BELOW: ease-out duration 400ms */
+  .life-page .chapter-panel.is-active {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1),
+      opacity 400ms cubic-bezier(0.23, 1, 0.32, 1) !important;
+  }
+
+  .life-page .chapter-panel.is-below {
+    transform: translateY(100vh) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .life-page .chapter-panel .collage-column {
+    width: 100% !important;
+    height: 38% !important;
+    padding: 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .life-page .chapter-panel[data-chapter-index="0"] .collage-column {
+    padding: 1rem !important;
+  }
+
+  .life-page .chapter-panel .content-column {
+    width: 100% !important;
+    height: 62% !important;
+    padding: 0 1rem 1rem 1rem !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .life-page .chapter-content-inner {
+    max-width: 100% !important;
+    display: block !important;
+  }
+
+  .life-page .chapter-header {
+    margin-bottom: 0.5rem !important;
+  }
+
+  .life-page .chapter-story-col {
+    margin-bottom: 0.5rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .life-page .chapter-title {
+    font-size: 1.6rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .life-page .chapter-story {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Reduce text content on mobile */
+  .life-page .chapter-story:nth-of-type(n+2) {
+    display: none !important;
+  }
+
+  .life-page .memory-fragment:nth-of-type(n+3) {
+    display: none !important;
+  }
+
+  .life-page .chapter-memories {
+    margin-bottom: 0.5rem !important;
+  }
+
+  .life-page .memory-fragment {
+    font-size: 0.75rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .life-page .chapter-reflection {
+    font-size: 0.8rem !important;
+    margin-top: 0.5rem !important;
+  }
+
+  .life-page .life-nav {
+    display: none !important;
+  }
+
+  .life-page .mobile-chapter-counter {
+    display: block !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  /* Horizontal mobile progress indicator sitting on top of card borders */
+  .life-page .life-nav-mobile {
+    display: flex !important;
+  }
+
+  .life-nav-mobile {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(var(--nav-height) + 0.5rem);
+    width: min(200px, 55vw);
+    height: auto;
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+    transition: opacity var(--duration-base) ease;
+  }
+
+  .life-nav-mobile-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+    margin-bottom: 0.35rem;
+    transition: filter 200ms ease, opacity 200ms ease;
+  }
+
+  .life-nav-mobile-labels.is-blurring {
+    filter: blur(4px);
+    opacity: 0;
+  }
+
+  .life-nav-mobile-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .life-nav-mobile-label.left {
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  .life-nav-mobile-label.right {
+    color: var(--color-text-muted);
+    font-weight: 400;
+  }
+
+  .life-nav-mobile__track {
+    width: 100%;
+    height: 1px;
+    background: var(--color-border);
+    position: relative;
+    border-radius: 1px;
+  }
+
+  .life-nav-mobile-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent) !important;
+    position: absolute;
+    left: var(--dot-progress-mobile, 0%);
+    transform: translate(-50%, -2.5px);
+    top: 0;
+    will-change: left;
+  }
+
+  /* prefers-reduced-motion: switch instantly */
+  @media (prefers-reduced-motion: reduce) {
+
+    .life-page .chapter-panel,
+    .life-page .chapter-panel.is-above,
+    .life-page .chapter-panel.is-active {
+      transition: none !important;
+    }
   }
 }
 
