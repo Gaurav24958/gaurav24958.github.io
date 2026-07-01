@@ -6,11 +6,20 @@
 }
 
 /* Intro Section */
-.life-intro {
-  padding: 8rem 2rem 4rem;
-  max-width: var(--max-width);
+.life-intro,
+.container.life-intro {
+  padding: 2rem 2rem 4rem;
+  max-width: var(--max-width) !important;
   margin: 0 auto;
   box-sizing: border-box;
+}
+
+.life-firsts {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.5em;
+  color: var(--color-accent);
+  letter-spacing: -0.01em;
 }
 
 .life-intro h1 {
@@ -28,7 +37,7 @@
   font-weight: 400;
   font-size: 1.15rem;
   line-height: 1.85;
-  max-width: 55ch;
+  /* max-width: 55ch; */
   color: var(--color-text);
   margin-bottom: 0;
   text-align: justify;
