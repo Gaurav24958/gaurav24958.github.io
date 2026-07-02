@@ -68,51 +68,117 @@
   <section class="hero india-hero">
     <div class="hero-grid">
       <div class="hero-text">
+
+        <!-- Chapter label — already exists, keep as-is -->
         <p class="hero-label">Chapter One</p>
+
+        <!-- Name — already exists, keep as-is -->
         <h1>Gaurav Boob</h1>
-        <p class="hero-sub">Full-Stack Developer | AI/ML Researcher | India</p>
-        <p class="hero-desc">
-          Building scalable systems and exploring deep learning
+
+        <!-- Role line — typing animation -->
+        <p class="hero-sub">
+          A <span id="typed-text"></span><span class="typed-cursor">|</span>
         </p>
+
+        <!-- Bio — full About paragraphs added directly below title -->
+        <div class="hero-bio">
+          <p>
+            I'm from Pune, India — a city that shaped my curiosity and drive to
+            build. My engineering journey began at PICT (Pune Institute of
+            Computer Technology) where I studied Electronics &
+            Telecommunication. During my undergrad, I developed a passion for
+            bridging theory and practice, leading me into full-stack
+            development, AI/ML, and computer vision research.
+          </p>
+          <p>
+            My first professional role was at Dragonfly Financial Technologies,
+            where I honed my backend development skills, working on payment
+            systems and optimizing database queries. This evolved into my
+            current role at Fidelity Information Services (FIS), where I
+            contribute to the Payments team, handling complex international
+            transactions and building robust financial software that serves
+            millions globally. I'm driven by the challenge of solving real-world
+            problems at scale.
+          </p>
+          <!-- <p>
+            Beyond work, I'm deeply invested in research—exploring applications
+            of deep learning in healthcare (diabetic retinopathy classification)
+            and speech recognition (lipreading for Indian English). I believe
+            technology should serve humanity, and I'm committed to continuous
+            learning and growth.
+          </p> -->
+        </div>
+
+        <!-- Currently block -->
+        <div class="hero-currently">
+          <div class="hero-currently__row">
+            <span class="hero-currently__label">Currently</span>
+            <span class="hero-currently__value">
+              SE2 @ FIS · Moving to Dublin, Sep 2026
+            </span>
+          </div>
+        </div>
+
+
       </div>
       <div class="hero-photo">
-        <img src="/assets/india/Gaurav.jpeg" alt="Gaurav Boob" />
+        <div class="hero-photo-stack">
+          <img src="/assets/india/Gaurav.jpeg" alt="Gaurav Boob" class="hero-photo-stack__img
+                   hero-photo-stack__img--left" />
+          <img src="/assets/india/Gaurav.jpeg" alt="Gaurav at Sar Pass" class="hero-photo-stack__img
+                   hero-photo-stack__img--right" />
+        </div>
       </div>
     </div>
   </section>
 
-  <main class="container life-intro">
-    <section style="margin: 0 0">
-      <h2>About</h2>
-      <div class="prose about-prose">
-        <p>
-          I'm from Pune, India — a city that shaped my curiosity and drive to
-          build. My engineering journey began at PICT (Pune Institute of
-          Computer Technology) where I studied Electronics &
-          Telecommunication. During my undergrad, I developed a passion for
-          bridging theory and practice, leading me into full-stack
-          development, AI/ML, and computer vision research.
-        </p>
-        <p>
-          My first professional role was at Dragonfly Financial Technologies,
-          where I honed my backend development skills, working on payment
-          systems and optimizing database queries. This evolved into my
-          current role at Fidelity Information Services (FIS), where I
-          contribute to the Payments team, handling complex international
-          transactions and building robust financial software that serves
-          millions globally. I'm driven by the challenge of solving real-world
-          problems at scale.
-        </p>
-        <p>
-          Beyond work, I'm deeply invested in research—exploring applications
-          of deep learning in healthcare (diabetic retinopathy classification)
-          and speech recognition (lipreading for Indian English). I believe
-          technology should serve humanity, and I'm committed to continuous
-          learning and growth.
-        </p>
+  <!-- About Me section below the fold (visible only on mobile) -->
+  <main class="life-intro container home-about">
+    <div class="about-grid">
+      <div class="about-text-col">
+        <h2>About</h2>
+        <div class="prose about-prose">
+          <p>
+            I'm from Pune, India — a city that shaped my curiosity and drive to
+            build. My engineering journey began at PICT (Pune Institute of
+            Computer Technology) where I studied Electronics &
+            Telecommunication. During my undergrad, I developed a passion for
+            bridging theory and practice, leading me into full-stack
+            development, AI/ML, and computer vision research.
+          </p>
+          <p>
+            My first professional role was at Dragonfly Financial Technologies,
+            where I honed my backend development skills, working on payment
+            systems and optimizing database queries. This evolved into my
+            current role at Fidelity Information Services (FIS), where I
+            contribute to the Payments team, handling complex international
+            transactions and building robust financial software that serves
+            millions globally. I'm driven by the challenge of solving real-world
+            problems at scale.
+          </p>
+          <!-- <p>
+            Beyond work, I'm deeply invested in research—exploring applications
+            of deep learning in healthcare (diabetic retinopathy classification)
+            and speech recognition (lipreading for Indian English). I believe
+            technology should serve humanity, and I'm committed to continuous
+            learning and growth.
+          </p> -->
+        </div>
       </div>
-    </section>
+      <div class="about-info-col">
+        <!-- Currently block -->
+        <div class="hero-currently">
+          <div class="hero-currently__row">
+            <span class="hero-currently__label">Currently</span>
+            <span class="hero-currently__value">
+              SE2 @ FIS · Moving to Dublin, Sep 2026
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
+
 
   <footer class="site-footer">
     <div class="footer-links">

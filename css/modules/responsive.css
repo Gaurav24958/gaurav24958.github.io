@@ -90,38 +90,126 @@
   }
 
   /* India Mobile Hero */
-  [data-chapter="india"] .hero-grid {
-    grid-template-columns: 1fr;
-    height: auto;
+  [data-chapter="india"] .hero {
+    min-height: auto;
+    padding: 6rem 0 3rem;
   }
 
+  /* single column stacked */
+  [data-chapter="india"] .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1.25rem;
+  }
+
+  /* photo stack appears FIRST on mobile */
   [data-chapter="india"] .hero-photo {
-    order: 1 !important;
-    height: 50vh;
-    width: 100%;
+    order: -1 !important;
     justify-content: center;
   }
 
-  [data-chapter="india"] .hero-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  /* larger stack on mobile/tablet */
+  [data-chapter="india"] .hero-photo-stack {
+    width: 350px;
+    height: 460px;
   }
 
-  [data-chapter="india"] .hero-photo::after {
-    width: 100%;
-    height: 100%;
+  /* Center left and right stack images symmetrically on mobile */
+  [data-chapter="india"] .hero-photo-stack__img--left {
+    left: 3% !important;
+    right: 5% !important;
+    top: 2% !important;
+    transform: rotate(-5deg) !important;
+
+  }
+
+  [data-chapter="india"] .hero-photo-stack__img--right {
+    right: 5% !important;
+    left: auto !important;
+    top: 8% !important;
+    transform: rotate(8deg) !important;
+  }
+
+  [data-chapter="india"] .hero-photo-stack__img--left:hover {
+    transform: rotate(0deg) translateY(-8px) scale(1.03) !important;
+    z-index: 4;
+  }
+
+  [data-chapter="india"] .hero-photo-stack__img--right:hover {
+    transform: rotate(0deg) translateY(-8px) scale(1.03) !important;
+    z-index: 4;
   }
 
   [data-chapter="india"] .hero-text {
-    order: 2;
-    padding: 2rem 1.5rem;
+    padding: 0 1.5rem 1rem;
     text-align: center;
     align-items: center;
   }
 
+  /* h1 smaller on mobile */
   [data-chapter="india"] .hero-text h1 {
-    font-size: 2.5rem;
+    font-size: 3.5rem !important;
+  }
+
+  [data-chapter="india"] .hero-sub {
+    font-size: 1.2rem;
+    text-align: left;
+  }
+
+  /* currently rows stack label above value */
+  [data-chapter="india"] .hero-currently__row {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  [data-chapter="india"] .hero-currently__label {
+    min-width: unset;
+  }
+
+  /* links wrap on narrow screens */
+  [data-chapter="india"] .hero-links {
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  /* Hide bio and currently blocks inside hero text column on mobile */
+  [data-chapter="india"] .hero-text .hero-bio,
+  [data-chapter="india"] .hero-text .hero-currently {
+    display: none !important;
+  }
+
+  /* Show and format mobile below-fold About section */
+  [data-chapter="india"] .home-about {
+    display: block !important;
+    padding: 4rem 0;
+  }
+
+  [data-chapter="india"] .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  [data-chapter="india"] .about-text-col,
+  [data-chapter="india"] .about-info-col {
+    padding: 0 1.5rem;
+    text-align: left;
+  }
+
+  [data-chapter="india"] .about-info-col {
+    padding-top: 0;
+  }
+
+  /* Common paragraph sizing, line-height, and margin-bottom for all sections in responsive mode for India and Ireland chapters */
+  [data-chapter="india"] p,
+  [data-chapter="india"] .prose p,
+  [data-chapter="india"] .about-prose p,
+  [data-chapter="india"] .life-intro p,
+  [data-chapter="ireland"] p,
+  [data-chapter="ireland"] .prose p,
+  [data-chapter="ireland"] .life-intro p {
+    font-size: 0.9rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 0.85rem !important;
   }
 
 
@@ -131,7 +219,7 @@
   }
 
   [data-chapter="ireland"] .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 3.5rem !important;
   }
 
   .hero-label {
@@ -676,5 +764,14 @@
   footer,
   .site-footer {
     padding: 1.75rem 1rem 1.5rem !important;
+  }
+
+  [data-chapter="india"] .hero-photo-stack {
+    width: 300px;
+    height: 400px;
+  }
+
+  [data-chapter="india"] .hero-text h1 {
+    font-size: 3.25rem;
   }
 }

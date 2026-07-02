@@ -498,9 +498,52 @@ function initLifePageMobile() {
 
   // Listen to scroll events
   window.addEventListener('scroll', handleMobileScroll, { passive: true });
-  
+
   // Call initially to set correct state
   handleMobileScroll();
+}
+
+function initTypingAnimation() {
+  const typedSpan = document.getElementById('typed-text');
+  if (!typedSpan) return;
+
+  const words = [
+    'Full-Stack Developer.',
+    'Curious Optimist.',
+    'Problem Solver.'
+  ];
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let typingDelay = 100;
+  let erasingDelay = 50;
+  let newWordDelay = 2000;
+
+  function type() {
+    const currentWord = words[wordIndex];
+    if (isDeleting) {
+      typedSpan.textContent = currentWord.substring(0, charIndex - 1);
+      charIndex--;
+      typingDelay = erasingDelay;
+    } else {
+      typedSpan.textContent = currentWord.substring(0, charIndex + 1);
+      charIndex++;
+      typingDelay = 100;
+    }
+
+    if (!isDeleting && charIndex === currentWord.length) {
+      isDeleting = true;
+      typingDelay = newWordDelay;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      typingDelay = 500;
+    }
+
+    setTimeout(type, typingDelay);
+  }
+
+  setTimeout(type, 1000);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -513,4 +556,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveals();
   initLifePage();
   initLifePageMobile();
+  initTypingAnimation();
 });
