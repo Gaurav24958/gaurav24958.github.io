@@ -253,7 +253,7 @@ function initLifePage() {
 
   const chapters = [
     { name: 'Childhood' },
-    { name: 'School' },
+    { name: 'High School' },
     { name: 'College' },
     { name: 'Work' },
     { name: 'Ireland' }
@@ -385,7 +385,7 @@ function initLifePageMobile() {
 
   const chapters = [
     { name: 'Childhood' },
-    { name: 'School' },
+    { name: 'High School' },
     { name: 'College' },
     { name: 'Work' },
     { name: 'Ireland' }
@@ -401,7 +401,7 @@ function initLifePageMobile() {
       <div class="life-nav-mobile" aria-hidden="true">
         <div class="life-nav-mobile-labels">
           <span class="life-nav-mobile-label left" id="nav-label-left-mobile">Childhood</span>
-          <span class="life-nav-mobile-label right" id="nav-label-right-mobile">School</span>
+          <span class="life-nav-mobile-label right" id="nav-label-right-mobile">High School</span>
         </div>
         <div class="life-nav-mobile__track">
           <div class="life-nav-mobile-dot" id="nav-dot-mobile"></div>
@@ -546,6 +546,37 @@ function initTypingAnimation() {
   setTimeout(type, 1000);
 }
 
+function initLifeIrelandLink() {
+  const journeyLink = document.getElementById('take-to-ireland-journey');
+  if (journeyLink) {
+    journeyLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      const btnIreland = document.getElementById('btn-ireland');
+      if (btnIreland) {
+        btnIreland.click();
+      } else {
+        window.location.href = '/ireland/';
+      }
+    });
+  }
+}
+
+function initLifeNavbarScroll() {
+  const nav = document.querySelector('.site-nav');
+  if (!nav) return;
+
+  const handleScroll = () => {
+    if (window.scrollY > 10) {
+      nav.classList.add('nav-scrolled');
+    } else {
+      nav.classList.remove('nav-scrolled');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll(); // Call initially
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initHamburger();
   initCurtain();
@@ -556,5 +587,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveals();
   initLifePage();
   initLifePageMobile();
+  initLifeIrelandLink();
+  initLifeNavbarScroll();
   initTypingAnimation();
 });

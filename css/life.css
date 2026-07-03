@@ -216,7 +216,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  opacity: 0;
+  opacity: 1;
 }
 
 .collage-placeholder img[src=""],
@@ -225,68 +225,221 @@
 }
 
 /* Specific Collage Grids (pure CSS grid) */
-/* Chapter 1 — Childhood (stacked split) */
+/* Chapter 1 — Childhood (stacked split — 4 items 2x2 layout) */
 .collage-grid-1 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 6fr 4fr;
-  gap: 1.5rem;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0;
   height: 100%;
 }
 
-.collage-grid-1 .collage-img-1 {
-  grid-column: span 2;
+.collage-grid-1 .collage-placeholder {
+  border-radius: 0 !important;
+  background-color: transparent !important;
 }
 
-.collage-grid-1 .collage-img-2 {
-  grid-column: 1;
+/* Ensure childhood images fit completely inside placeholders with cover format */
+.collage-grid-1 .collage-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
 }
 
-.collage-grid-1 .collage-img-3 {
-  grid-column: 2;
+/* Adjust focal point for Childhood Image 2 to show the bike */
+.collage-grid-1 .collage-img-2 img {
+  object-position: 25% center;
 }
 
-/* Chapter 2 — School (side by side top, wide bottom) */
+/* Chapter 2 — High School (5-image collage layout on desktop) */
 .collage-grid-2 {
   display: grid;
-  grid-template-columns: 4fr 6fr;
-  grid-template-rows: 55fr 45fr;
-  gap: 1.5rem;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0;
   height: 100%;
+}
+
+.collage-grid-2 .collage-img-5 {
+  grid-column: 1;
+  grid-row: 1 / span 2;
 }
 
 .collage-grid-2 .collage-img-1 {
-  grid-column: 1;
-}
-
-.collage-grid-2 .collage-img-2 {
-  grid-column: 2;
-}
-
-.collage-grid-2 .collage-img-3 {
-  grid-column: span 2;
-}
-
-/* Chapter 3 — College (tall left, two right) */
-.collage-grid-3 {
-  display: grid;
-  grid-template-columns: 45fr 55fr;
-  grid-template-rows: repeat(2, 1fr);
-  gap: 1.5rem;
-  height: 100%;
-}
-
-.collage-grid-3 .collage-img-1 {
-  grid-column: 1;
-  grid-row: span 2;
-}
-
-.collage-grid-3 .collage-img-2 {
   grid-column: 2;
   grid-row: 1;
 }
 
+.collage-grid-2 .collage-img-2 {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.collage-grid-2 .collage-img-3 {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.collage-grid-2 .collage-img-4 {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+/* Adjust focal point for High School First Code image to show the left side */
+.collage-grid-2 .collage-img-3 img {
+  object-position: 100% center;
+}
+
+.collage-grid-2 .collage-placeholder {
+  border-radius: 0 !important;
+  background-color: transparent !important;
+}
+
+.collage-grid-2 .collage-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+}
+
+/* Responsive mobile adjustments for High School Collage Grid 2 (Horizontal Scroll) */
+@media (max-width: 768px) {
+
+  .collage-grid-2,
+  .collage-grid-3 {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
+    padding: 0 1rem !important;
+    box-sizing: border-box !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Hide scrollbars on mobile viewport for clean UI */
+  .collage-grid-2::-webkit-scrollbar,
+  .collage-grid-3::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .collage-grid-2 .collage-item,
+  .collage-grid-3 .collage-item {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    position: relative !important;
+    flex: 0 0 180px !important;
+    height: 220px !important;
+    max-width: none !important;
+    max-height: none !important;
+    transform: none !important;
+    scroll-snap-align: center !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+    transition: none !important;
+  }
+
+  .collage-grid-2 .collage-placeholder,
+  .collage-grid-3 .collage-placeholder {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+  }
+
+  .collage-grid-2 .collage-placeholder img,
+  .collage-grid-3 .collage-placeholder img {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transform: none !important;
+  }
+
+  /* Disable zoom transitions on hover on mobile */
+  .collage-grid-2 .collage-item:hover img,
+  .collage-grid-2 .collage-placeholder:hover img,
+  .collage-grid-3 .collage-item:hover img,
+  .collage-grid-3 .collage-placeholder:hover img {
+    transform: none !important;
+  }
+}
+
+/* Chapter 3 — College (5-image layout, mirrored) */
+.collage-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0;
+  height: 100%;
+}
+
+.collage-grid-3 .collage-placeholder {
+  border-radius: 0 !important;
+  background-color: transparent !important;
+}
+
+.collage-grid-3 .collage-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+}
+
+.collage-grid-3 .collage-img-1 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.collage-grid-3 .collage-img-2 img {
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.9);
+  transition: transform 0.3s var(--ease-out);
+}
+
+.collage-grid-3 .collage-img-2:hover img {
+  transform: scale(1.2);
+}
+
 .collage-grid-3 .collage-img-3 {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+}
+
+.collage-grid-3 .collage-img-4 {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.collage-grid-3 .collage-img-4 img {
+  object-fit: cover;
+  object-position: 20%;
+  transform: scale(1.1);
+  transition: transform 0.3s var(--ease-out);
+}
+
+.collage-grid-3 .collage-img-4:hover img {
+  transform: scale(1.2);
+}
+
+.collage-grid-3 .collage-img-6 {
   grid-column: 2;
   grid-row: 2;
 }
@@ -473,6 +626,10 @@
   transition-delay: 160ms;
 }
 
+.chapter-panel .collage-item:nth-child(4) .collage-placeholder {
+  transition-delay: 240ms;
+}
+
 /* Active entrance trigger */
 .chapter-panel.is-active .animate-label,
 .chapter-panel.is-active .animate-year,
@@ -513,4 +670,156 @@
     transition-delay: 0ms !important;
     transform: none !important;
   }
+}
+
+/* Chapter Action Link */
+.chapter-action-container {
+  margin-top: 2rem;
+}
+
+.chapter-action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+  text-decoration: none;
+  border: 1px solid var(--color-accent);
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  background: transparent;
+  transition: all var(--transition);
+}
+
+.chapter-action-link:hover {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(224, 123, 57, 0.2);
+}
+
+/* Background Image for Life Page */
+.life-page body::before {
+  content: '';
+  position: fixed;
+  top: -10px;
+  left: -10px;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  background-image: linear-gradient(rgba(26, 15, 0, 0.85), rgba(26, 15, 0, 0.85)), url('/assets/india/BackgroundLife.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  opacity: 1;
+  pointer-events: none;
+  filter: blur(1.5px);
+}
+
+/* Transparent navbar initially, transitioning to solid on scroll */
+.life-page .site-nav {
+  background-color: transparent !important;
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+  transition: background-color 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+
+.life-page .site-nav.nav-scrolled {
+  background-color: var(--color-nav-bg) !important;
+  border-bottom-color: var(--color-border) !important;
+}
+
+/* Hover label styles */
+.collage-placeholder {
+  position: relative;
+  overflow: hidden;
+}
+
+.collage-placeholder img {
+  transition: transform 0.4s var(--ease-out), filter 0.3s ease !important;
+}
+
+/* Blur siblings when overlay is active — toggled via JS class on the grid */
+.collage-grid-1.has-overlay .collage-placeholder,
+.collage-grid-2.has-overlay .collage-placeholder,
+.collage-grid-3.has-overlay .collage-placeholder {
+  filter: blur(6px) opacity(0.4);
+  transition: filter 0.3s ease;
+}
+
+/* === Collage Hover Overlay === */
+.collage-hover-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  z-index: 200;
+  pointer-events: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  max-width: 96%;
+  max-height: 96%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.collage-hover-overlay.is-visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.35);
+}
+
+.collage-hover-overlay img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  position: static !important;
+}
+
+.collage-hover-overlay .hover-label {
+  opacity: 1 !important;
+  transform: translateY(0) translateX(0) !important;
+  z-index: 210;
+}
+
+.hover-label {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  transform: translateY(0) translateX(10px);
+  background: rgba(26, 15, 0, 0.85);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.7rem;
+  border-radius: 4px;
+  border-right: 2px solid var(--color-accent);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  opacity: 0;
+  transition: opacity 300ms var(--ease-out), transform 300ms var(--ease-out);
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.collage-placeholder:hover .hover-label,
+.stack-item:hover .hover-label {
+  opacity: 1;
+  transform: translateY(0) translateX(0);
 }
