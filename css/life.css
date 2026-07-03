@@ -444,6 +444,12 @@
   grid-row: 2;
 }
 
+/* Filter effect for all collage images */
+.collage-item img {
+  filter: grayscale(0.35) sepia(0.55) contrast(0.95) brightness(0.9);
+}
+
+
 /* Chapter 4 — Work (asymmetric three) */
 .collage-grid-4 {
   display: grid;
