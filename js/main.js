@@ -610,6 +610,33 @@ function initDynamicDurations() {
   });
 }
 
+function initJourneyTransitions() {
+  const link = document.querySelector('.journey-back-link a');
+  const curtain = document.querySelector('.curtain');
+  if (!link || !curtain) return;
+
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const targetUrl = link.getAttribute('href');
+
+    const clickDirection = 'ire-to-ind';
+    const targetChapter = 'india';
+
+    sessionStorage.setItem('chapter-switching', 'true');
+    sessionStorage.setItem('switch-direction', clickDirection);
+
+    // Trigger curtain transition
+    curtain.setAttribute('data-target-chapter', targetChapter);
+    curtain.classList.add(clickDirection);
+    curtain.classList.remove('revealing');
+    curtain.classList.add('slide-down');
+
+    setTimeout(() => {
+      window.location.href = targetUrl;
+    }, 2700);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initHamburger();
   initCurtain();
@@ -624,4 +651,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initLifeNavbarScroll();
   initTypingAnimation();
   initDynamicDurations();
+  initJourneyTransitions();
 });

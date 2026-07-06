@@ -213,6 +213,9 @@
   color: var(--color-text-muted);
   max-width: 68ch;
   margin-bottom: 1.75rem;
+  text-align: justify;
+  text-justify: inter-word;
+  text-wrap: pretty;
 }
 
 [data-chapter="india"] .hero-bio p {

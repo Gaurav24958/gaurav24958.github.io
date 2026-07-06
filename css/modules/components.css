@@ -317,3 +317,66 @@ a.btn.secondary:hover {
   border-radius: 8px;
   box-shadow: var(--shadow-card);
 }
+
+/* Journey Back Link Callout */
+.journey-back-link {
+  display: flex;
+  background-color: var(--color-bg-muted, rgba(255, 255, 255, 0.02));
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0 2rem 0;
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.journey-back-link:hover {
+  border-color: var(--color-accent-2);
+  background-color: var(--color-bg-hover, rgba(255, 255, 255, 0.04));
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.journey-back-link a {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  text-decoration: none;
+  width: 100%;
+  color: inherit;
+}
+
+.journey-back-link .chapter-arrow {
+  font-size: 1.5rem;
+  color: var(--color-accent-2);
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  line-height: 1;
+}
+
+.journey-back-link:hover .chapter-arrow {
+  transform: translateX(-4px);
+}
+
+.journey-back-link .chapter-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.journey-back-link .chapter-pre {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.journey-back-link .chapter-name {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  transition: color 0.25s ease;
+}
+
+.journey-back-link:hover .chapter-name {
+  color: var(--color-accent-2);
+}

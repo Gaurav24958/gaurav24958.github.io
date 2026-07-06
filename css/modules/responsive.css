@@ -841,4 +841,22 @@
   [data-chapter="india"] .hero-text h1 {
     font-size: 3.25rem;
   }
+
+  /* Journey Back Link Callout Mobile */
+  .journey-back-link {
+    padding: 0.85rem 1rem;
+    margin: 1.25rem 0 1.75rem 0;
+  }
+  .journey-back-link a {
+    gap: 0.75rem;
+  }
+  .journey-back-link .chapter-arrow {
+    font-size: 1.25rem;
+  }
+  .journey-back-link .chapter-name {
+    font-size: 0.875rem;
+  }
+  .journey-back-link .chapter-pre {
+    font-size: 0.65rem;
+  }
 }
