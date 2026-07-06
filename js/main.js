@@ -577,6 +577,39 @@ function initLifeNavbarScroll() {
   handleScroll(); // Call initially
 }
 
+function initDynamicDurations() {
+  const elements = document.querySelectorAll('.dynamic-duration');
+  elements.forEach(el => {
+    const startDateStr = el.getAttribute('data-start-date');
+    if (!startDateStr) return;
+    // Use 'YYYY-MM-DD' format (e.g., '2025-01-01' -> parsed in local timezone if formatted correctly)
+    // To prevent timezone offsets from shifting the month, we can parse manually or use new Date(year, monthIndex)
+    const parts = startDateStr.split('-');
+    const year = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10) - 1; // 0-indexed month
+    const startDate = new Date(year, month, 1);
+    const endDate = new Date();
+    
+    const totalMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth());
+    const years = Math.floor(totalMonths / 12);
+    const months = totalMonths % 12;
+    
+    let durationStr = "";
+    if (years > 0) {
+      durationStr += `${years} yr${years > 1 ? 's' : ''}`;
+    }
+    if (months > 0) {
+      if (durationStr) durationStr += " ";
+      durationStr += `${months} mos`;
+    }
+    if (!durationStr) {
+      durationStr = "0 mos";
+    }
+    
+    el.textContent = durationStr;
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initHamburger();
   initCurtain();
@@ -590,4 +623,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initLifeIrelandLink();
   initLifeNavbarScroll();
   initTypingAnimation();
+  initDynamicDurations();
 });

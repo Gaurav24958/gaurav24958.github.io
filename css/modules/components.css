@@ -137,11 +137,15 @@
   display: inline-block;
   white-space: nowrap;
 }
+.experience-section {
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+}
 
-/* Timeline */
 .timeline {
   position: relative;
   padding-left: 2rem;
+  margin-top: 2.5rem;
 }
 
 .timeline::before {
@@ -196,6 +200,9 @@
   font-size: 0.95rem;
   color: var(--color-text);
   line-height: 1.6;
+  text-align: justify;
+  text-justify: inter-word;
+  text-wrap: pretty;
 }
 
 .timeline-content ul {
@@ -206,6 +213,24 @@
 
 .timeline-content li {
   margin-bottom: 0.25rem;
+}
+
+.timeline-subrole {
+  margin-top: 1.25rem;
+}
+.timeline-subrole:first-child {
+  margin-top: 0;
+}
+.timeline-subrole-title {
+  font-weight: 600;
+  font-size: 0.975rem;
+  color: var(--color-text);
+}
+.timeline-subrole-date {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-left: 0.5rem;
 }
 
 /* Buttons */

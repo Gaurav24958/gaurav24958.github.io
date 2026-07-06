@@ -311,10 +311,23 @@
   /* Timeline adjustments */
   .timeline {
     padding-left: 1.5rem;
+    max-width: 100% !important;
   }
 
   .timeline-item::before {
     left: -2rem;
+  }
+
+  .timeline-title {
+    font-size: 1.05rem !important;
+  }
+
+  .timeline-meta {
+    font-size: 0.8rem !important;
+  }
+
+  .timeline-content {
+    font-size: 0.9rem !important;
   }
 
   /* Cards and text */
@@ -713,10 +726,11 @@
   /* Timeline */
   .timeline {
     padding-left: 1rem;
+    max-width: 100% !important;
   }
 
   .timeline-item {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
   }
 
   .timeline-item::before {
@@ -724,6 +738,45 @@
     width: 10px;
     height: 10px;
     box-shadow: 0 0 0 2px var(--color-border);
+  }
+
+  .timeline-title {
+    font-size: 0.95rem !important;
+  }
+
+  .timeline-meta {
+    font-size: 0.775rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.65rem !important;
+  }
+
+  .timeline-content {
+    font-size: 0.825rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .timeline-content ul {
+    margin-left: 1.15rem !important;
+    margin-top: 0.4rem !important;
+  }
+
+  .timeline-content li {
+    margin-bottom: 0.4rem !important;
+  }
+
+  .timeline-subrole {
+    margin-top: 1rem !important;
+  }
+
+  .timeline-subrole-title {
+    font-size: 0.85rem !important;
+  }
+
+  .timeline-subrole-date {
+    font-size: 0.725rem !important;
+    display: block;
+    margin-left: 0 !important;
+    margin-top: 0.15rem;
   }
 
   /* Cards */
