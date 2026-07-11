@@ -24,11 +24,15 @@
   }
 
   h1 {
-    font-size: 3.75rem;
+    font-size: 3rem;
+  }
+
+  .life-intro h1 {
+    font-size: 3rem !important;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.35rem;
   }
 
   h3 {
@@ -64,12 +68,28 @@
     padding: 0 1.5rem;
   }
 
-  h1 {
-    font-size: 3rem;
+  body:not(:has(.hero)) h1,
+  .life-intro h1 {
+    font-size: 1.6rem !important;
   }
 
   h2 {
-    font-size: 1.75rem;
+    font-size: 1.25rem !important;
+  }
+
+  body:not(:has(.hero)) main.container,
+  body:not(:has(.hero)) main.life-intro {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  body:not(:has(.hero)) main.container>section:first-of-type {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  section+section {
+    margin-top: 2rem !important;
   }
 
   h3 {
@@ -620,12 +640,17 @@
     padding: 0 1rem;
   }
 
-  h1 {
-    font-size: 2.25rem;
+  body:not(:has(.hero)) h1,
+  .life-intro h1 {
+    font-size: 1.6rem !important;
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.15rem !important;
+  }
+
+  section+section {
+    margin-top: 1.5rem !important;
   }
 
   h3 {
@@ -847,15 +872,19 @@
     padding: 0.85rem 1rem;
     margin: 1.25rem 0 1.75rem 0;
   }
+
   .journey-back-link a {
     gap: 0.75rem;
   }
+
   .journey-back-link .chapter-arrow {
     font-size: 1.25rem;
   }
+
   .journey-back-link .chapter-name {
     font-size: 0.875rem;
   }
+
   .journey-back-link .chapter-pre {
     font-size: 0.65rem;
   }

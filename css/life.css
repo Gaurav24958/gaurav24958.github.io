@@ -845,3 +845,112 @@
   opacity: 1;
   transform: translateY(0) translateX(0);
 }
+
+/* Dublin Life Wishlist Card Styles */
+.wishlist-card {
+  background: rgba(21, 43, 30, 0.4);
+  border: 1px solid rgba(168, 197, 176, 0.15);
+  border-radius: 12px;
+  padding: 3rem 2.5rem;
+  margin: 3rem 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  text-align: left;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wishlist-card:hover {
+  border-color: rgba(168, 197, 176, 0.3);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+}
+
+.wishlist-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+  display: inline-block;
+  background: rgba(45, 106, 79, 0.15);
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid rgba(45, 106, 79, 0.3);
+}
+
+.wishlist-title {
+  font-size: 2.25rem !important;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  margin-bottom: 0.5rem !important;
+  color: var(--color-text);
+}
+
+.wishlist-meta {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.wishlist-desc {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin-bottom: 3rem;
+}
+
+.wishlist-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.wishlist-item {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+  cursor: pointer;
+}
+
+.wishlist-item:hover {
+  background: rgba(45, 106, 79, 0.06);
+  border-color: rgba(45, 106, 79, 0.2);
+  transform: translateX(4px);
+}
+
+.checkbox-custom {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid var(--color-text-muted);
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.wishlist-item:hover .checkbox-custom {
+  border-color: var(--color-accent);
+  background: rgba(45, 106, 79, 0.1);
+}
+
+.wishlist-text {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  transition: color 0.25s ease;
+}
+
+.wishlist-item:hover .wishlist-text {
+  color: var(--color-text);
+}

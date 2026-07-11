@@ -589,11 +589,11 @@ function initDynamicDurations() {
     const month = parseInt(parts[1], 10) - 1; // 0-indexed month
     const startDate = new Date(year, month, 1);
     const endDate = new Date();
-    
+
     const totalMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth());
     const years = Math.floor(totalMonths / 12);
     const months = totalMonths % 12;
-    
+
     let durationStr = "";
     if (years > 0) {
       durationStr += `${years} yr${years > 1 ? 's' : ''}`;
@@ -605,7 +605,7 @@ function initDynamicDurations() {
     if (!durationStr) {
       durationStr = "0 mos";
     }
-    
+
     el.textContent = durationStr;
   });
 }

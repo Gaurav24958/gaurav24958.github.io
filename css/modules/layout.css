@@ -5,11 +5,23 @@
   animation: pageFadeIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
+/* Standardized Content Max-Width */
+main.container,
+.life-intro,
+.page-content {
+  max-width: var(--max-width) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
 @keyframes pageFadeIn {
   from {
     opacity: 0;
     transform: translateY(12px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -32,7 +44,7 @@
   text-wrap: pretty;
 }
 
-.prose + .prose {
+.prose+.prose {
   margin-top: 2rem;
 }
 
@@ -126,4 +138,27 @@ section.hero {
 
 .ireland-hero .hero-overlay {
   background: linear-gradient(to bottom, rgba(13, 31, 21, 0.55), rgba(13, 31, 21, 0.35));
+}
+
+/* Projects Page Sticky Footer in Desktop View */
+@media (min-width: 769px) {
+
+  .projects-page,
+  .projects-page body {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .projects-page body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .projects-page main {
+    flex-grow: 1;
+  }
+
+  .projects-page .site-footer {
+    width: 100%;
+  }
 }
