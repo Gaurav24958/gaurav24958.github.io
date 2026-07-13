@@ -30,6 +30,7 @@
   color: var(--color-text);
   margin-bottom: 2rem;
   letter-spacing: -0.02em;
+  padding-top: 4rem;
 }
 
 .life-intro p {
@@ -734,7 +735,7 @@
   z-index: -1;
   opacity: 1;
   pointer-events: none;
-  filter: blur(1.5px);
+  /* filter: blur(1.5px); */
 }
 
 /* Transparent navbar initially, transitioning to solid on scroll */

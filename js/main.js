@@ -190,17 +190,17 @@ function initNavScroll() {
 }
 
 function initScrollReveals() {
-  const elements = document.querySelectorAll('main h2, main p, .card, .timeline-item, main li');
+  const elements = document.querySelectorAll('main h2, main p, .card, main li');
 
   elements.forEach((el) => {
     // Avoid double revealing or styling elements that shouldn't be revealed
     if (el.closest('.hero') || el.closest('.site-nav') || el.closest('footer')) return;
 
-    if (el.classList.contains('card') || el.classList.contains('timeline-item')) {
+    if (el.classList.contains('card')) {
       el.classList.add('scroll-reveal');
     } else {
-      // If it is inside a card or timeline-item, it is already animated by its parent container
-      if (el.closest('.card') || el.closest('.timeline-item')) return;
+      // If it is inside a card or timeline entry, it is already animated by its parent container
+      if (el.closest('.card') || el.closest('.timeline__entry')) return;
       el.classList.add('scroll-reveal');
     }
   });
@@ -582,15 +582,22 @@ function initDynamicDurations() {
   elements.forEach(el => {
     const startDateStr = el.getAttribute('data-start-date');
     if (!startDateStr) return;
-    // Use 'YYYY-MM-DD' format (e.g., '2025-01-01' -> parsed in local timezone if formatted correctly)
-    // To prevent timezone offsets from shifting the month, we can parse manually or use new Date(year, monthIndex)
-    const parts = startDateStr.split('-');
-    const year = parseInt(parts[0], 10);
-    const month = parseInt(parts[1], 10) - 1; // 0-indexed month
-    const startDate = new Date(year, month, 1);
-    const endDate = new Date();
 
-    const totalMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth());
+    const startParts = startDateStr.split('-');
+    const startYear = parseInt(startParts[0], 10);
+    const startMonth = parseInt(startParts[1], 10) - 1;
+    const startDate = new Date(startYear, startMonth, 1);
+
+    let endDate;
+    const endDateStr = el.getAttribute('data-end-date');
+    if (endDateStr) {
+      const endParts = endDateStr.split('-');
+      endDate = new Date(parseInt(endParts[0], 10), parseInt(endParts[1], 10) - 1, 1);
+    } else {
+      endDate = new Date();
+    }
+
+    const totalMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth()) + 1;
     const years = Math.floor(totalMonths / 12);
     const months = totalMonths % 12;
 
@@ -608,6 +615,39 @@ function initDynamicDurations() {
 
     el.textContent = durationStr;
   });
+}
+
+function initTotalExperience() {
+  const expEl = document.getElementById('total-exp-value');
+  if (!expEl) return;
+
+  // Job 1: Dragonfly (Jul 2024 – Dec 2024) -> 6 months
+  const dflyStart = new Date(2024, 6, 1); // July 1
+  const dflyEnd = new Date(2024, 11, 1); // December 1
+  const dflyMonths = (dflyEnd.getFullYear() - dflyStart.getFullYear()) * 12 + (dflyEnd.getMonth() - dflyStart.getMonth()) + 1;
+
+  // Job 2: FIS (Jan 2025 – Present)
+  const fisStart = new Date(2025, 0, 1); // Jan 1
+  const today = new Date();
+  const fisMonths = (today.getFullYear() - fisStart.getFullYear()) * 12 + (today.getMonth() - fisStart.getMonth()) + 1;
+
+  const totalMonths = dflyMonths + fisMonths;
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+
+  let durationStr = "";
+  if (years > 0) {
+    durationStr += `${years} yr${years > 1 ? 's' : ''}`;
+  }
+  if (months > 0) {
+    if (durationStr) durationStr += " ";
+    durationStr += `${months} mos`;
+  }
+  if (!durationStr) {
+    durationStr = "0 mos";
+  }
+
+  expEl.textContent = durationStr;
 }
 
 function initJourneyTransitions() {
@@ -637,6 +677,38 @@ function initJourneyTransitions() {
   });
 }
 
+function initTimeline() {
+  const sidebar = document.querySelector('.experience-sidebar');
+  if (sidebar) {
+    setTimeout(() => {
+      sidebar.classList.add('is-visible');
+    }, 150);
+  }
+
+  const entries = document.querySelectorAll('.timeline__entry');
+  if (!entries.length) return;
+
+  // Respect reduced-motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    entries.forEach(entry => entry.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((observations) => {
+    observations.forEach((obs, i) => {
+      if (obs.isIntersecting) {
+        setTimeout(() => {
+          obs.target.classList.add('is-visible');
+        }, i * 80);
+        observer.unobserve(obs.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  entries.forEach(entry => observer.observe(entry));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initHamburger();
   initCurtain();
@@ -651,5 +723,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLifeNavbarScroll();
   initTypingAnimation();
   initDynamicDurations();
+  initTotalExperience();
   initJourneyTransitions();
+  initTimeline();
 });

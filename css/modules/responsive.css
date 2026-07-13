@@ -52,6 +52,27 @@
     gap: 1rem;
   }
 
+  .experience-layout {
+    flex-direction: column !important;
+    gap: 2rem !important;
+    margin-top: 1.5rem !important;
+  }
+
+  .experience-sidebar {
+    width: 100% !important;
+    position: relative !important;
+    top: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.25rem !important;
+    padding: 1.25rem !important;
+  }
+
+  .experience-sidebar .sidebar-block:nth-child(1),
+  .experience-sidebar .sidebar-block:nth-child(4) {
+    grid-column: span 2 !important;
+  }
+
   .nav-inner {
     gap: 1.5rem;
   }
@@ -71,6 +92,7 @@
   body:not(:has(.hero)) h1,
   .life-intro h1 {
     font-size: 1.6rem !important;
+    padding-top: 0rem !important;
   }
 
   h2 {
@@ -330,25 +352,46 @@
 
   /* Timeline adjustments */
   .timeline {
-    padding-left: 1.5rem;
-    max-width: 100% !important;
+    padding-left: 1rem;
   }
 
-  .timeline-item::before {
-    left: -2rem;
+  .timeline__entry {
+    gap: 1.25rem;
+    padding-bottom: 2.5rem;
   }
 
-  .timeline-title {
-    font-size: 1.05rem !important;
+  .timeline__header-row {
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
   }
 
-  .timeline-meta {
-    font-size: 0.8rem !important;
+  .timeline__header-left {
+    min-width: 0 !important;
   }
 
-  .timeline-content {
-    font-size: 0.9rem !important;
+  .timeline__header-right {
+    margin-left: 0.5rem !important;
   }
+
+  .timeline__date,
+  .timeline__duration {
+    font-size: 0.65rem !important;
+  }
+
+  .timeline__role {
+    font-size: 0.75rem;
+  }
+
+  .timeline__context {
+    font-size: 0.875rem;
+    max-width: 100%;
+  }
+
+  .timeline__bullets li {
+    font-size: 0.85rem;
+  }
+
+
 
   /* Cards and text */
   .card {
@@ -653,6 +696,16 @@
     margin-top: 1.5rem !important;
   }
 
+  .experience-sidebar {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .experience-sidebar .sidebar-block:nth-child(1),
+  .experience-sidebar .sidebar-block:nth-child(4) {
+    grid-column: span 1 !important;
+  }
+
   h3 {
     font-size: 1.125rem;
   }
@@ -751,58 +804,45 @@
   /* Timeline */
   .timeline {
     padding-left: 1rem;
-    max-width: 100% !important;
   }
 
-  .timeline-item {
-    margin-bottom: 1.75rem;
+  .timeline__entry {
+    gap: 1.25rem;
+    padding-bottom: 2.5rem;
   }
 
-  .timeline-item::before {
-    left: -1.5rem;
-    width: 10px;
-    height: 10px;
-    box-shadow: 0 0 0 2px var(--color-border);
+  .timeline__header-row {
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
   }
 
-  .timeline-title {
-    font-size: 0.95rem !important;
+  .timeline__header-left {
+    min-width: 0 !important;
   }
 
-  .timeline-meta {
-    font-size: 0.775rem !important;
-    line-height: 1.4 !important;
-    margin-bottom: 0.65rem !important;
+  .timeline__header-right {
+    margin-left: 0.5rem !important;
   }
 
-  .timeline-content {
-    font-size: 0.825rem !important;
-    line-height: 1.55 !important;
+  .timeline__date,
+  .timeline__duration {
+    font-size: 0.65rem !important;
   }
 
-  .timeline-content ul {
-    margin-left: 1.15rem !important;
-    margin-top: 0.4rem !important;
+  .timeline__role {
+    font-size: 0.75rem;
   }
 
-  .timeline-content li {
-    margin-bottom: 0.4rem !important;
+  .timeline__context {
+    font-size: 0.85rem;
+    max-width: 100%;
   }
 
-  .timeline-subrole {
-    margin-top: 1rem !important;
+  .timeline__bullets li {
+    font-size: 0.85rem;
   }
 
-  .timeline-subrole-title {
-    font-size: 0.85rem !important;
-  }
 
-  .timeline-subrole-date {
-    font-size: 0.725rem !important;
-    display: block;
-    margin-left: 0 !important;
-    margin-top: 0.15rem;
-  }
 
   /* Cards */
   .card {
