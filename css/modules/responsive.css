@@ -519,11 +519,13 @@
   .life-page .chapter-panel .content-column {
     width: 100% !important;
     height: 62% !important;
-    padding: 1.5rem 1rem 1rem 1rem !important;
+    padding: 1rem 1rem 1.5rem 1rem !important;
     box-sizing: border-box !important;
     display: flex !important;
     align-items: flex-start !important;
     justify-content: center !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
   /* Specific mobile overrides for panels without collages (Work and Ireland) */
@@ -543,6 +545,9 @@
   .life-page .chapter-content-inner {
     max-width: 100% !important;
     display: block !important;
+    max-height: 100% !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
   .life-page .chapter-header {
@@ -555,19 +560,18 @@
   }
 
   .life-page .chapter-title {
-    font-size: 1.6rem !important;
+    font-size: 1.4rem !important;
     margin-bottom: 0.25rem !important;
   }
 
   .life-page .chapter-story {
-    font-size: 0.85rem !important;
-    line-height: 1.5 !important;
-    margin-bottom: 0 !important;
+    font-size: 0.8rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 0.5rem !important;
   }
 
-  /* Reduce text content on mobile */
-  .life-page .chapter-story:nth-of-type(n+2) {
-    display: none !important;
+  .life-page .chapter-story .life-firsts {
+    font-size: 1.15em !important;
   }
 
   .life-page .memory-fragment:nth-of-type(n+3) {

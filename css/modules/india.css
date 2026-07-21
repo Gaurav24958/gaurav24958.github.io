@@ -118,8 +118,9 @@
 [data-chapter="india"] .hero {
   min-height: 100dvh;
   display: flex;
-  align-items: center;
-  padding-top: var(--nav-height, 70px);
+  align-items: flex-start;
+  padding-top: calc(var(--nav-height, 70px) + 0.5rem);
+  padding-bottom: 3rem;
   box-sizing: border-box;
   overflow: hidden;
 }
