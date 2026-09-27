@@ -1,0 +1,255 @@
+<!doctype html>
+<html data-chapter="india" class="project-detail-page">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat with Scientific Documents (PaperInsight) — Gaurav Boob</title>
+  <link rel="stylesheet" href="/css/style.css?v=20260602" />
+</head>
+
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="/india/">About</a>
+        <a href="/india/experience/">Experience</a>
+        <a href="/india/projects/">Projects</a>
+      </div>
+
+      <div class="chapter-toggle">
+        <button class="toggle-btn" id="btn-india" data-target="/india/">
+          🇮🇳 IND
+        </button>
+        <span class="toggle-divider">↔</span>
+        <button class="toggle-btn" id="btn-ireland" data-target="/ireland/">
+          IRE 🇮🇪
+        </button>
+      </div>
+
+      <div class="nav-right">
+        <a href="/india/life/">Life</a>
+        <a href="/Gaurav_Uni_Resume.pdf" download>Resume</a>
+        <button class="theme-toggle" id="theme-toggle">○</button>
+      </div>
+
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile-menu" id="nav-mobile-menu">
+      <a href="/india/">About</a>
+      <a href="/india/experience/">Experience</a>
+      <a href="/india/projects/">Projects</a>
+      <a href="/india/life/">Life</a>
+      <a href="/Gaurav_Uni_Resume.pdf" download>Resume</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <article class="project-case-study" id="project-case-study">
+      <div>
+        <a href="/india/projects/" class="project-back-btn">
+          ← Back to Projects
+        </a>
+      </div>
+
+      <header class="project-detail-header">
+        <div class="project-modal__meta-top">
+          <span class="project-card__badge">Hackathon Winner</span>
+          <span class="tag">RAG</span>
+          <span class="tag">LLM</span>
+          <span class="tag">Nougat Transformer</span>
+          <span class="tag">Gemini 1.0 Pro</span>
+        </div>
+        <h1>Chat with Scientific Documents (PaperInsight)</h1>
+        <p class="project-detail-subtitle">
+          Visual Transformer Parsing & Multimodal Retrieval-Augmented Generation for Complex Academic Research Papers.
+        </p>
+
+        <div class="project-actions">
+          <a href="https://github.com/Gaurav24958/PaperInsight" target="_blank" rel="noopener"
+            class="btn-primary-action">
+            💻 GitHub Repository ↗
+          </a>
+        </div>
+      </header>
+
+      <!-- Key Metrics & Recognition -->
+      <section class="project-section-block">
+        <h2 class="project-section-block__title">Key Results & Achievements</h2>
+        <div class="metric-stat-grid">
+          <div class="metric-stat-card">
+            <div class="metric-stat-card__val">#1 Rank</div>
+            <div class="metric-stat-card__lbl">MINeD'24 Winner</div>
+            <div class="metric-stat-card__sub">Binghamton & Nirma Hackathon (150+ teams)</div>
+          </div>
+          <div class="metric-stat-card">
+            <div class="metric-stat-card__val">100%</div>
+            <div class="metric-stat-card__lbl">Equation Fidelity</div>
+            <div class="metric-stat-card__sub">Flawless LaTeX & table OCR extraction</div>
+          </div>
+          <div class="metric-stat-card">
+            <div class="metric-stat-card__val">Gemini</div>
+            <div class="metric-stat-card__lbl">LLM Backbone</div>
+            <div class="metric-stat-card__sub">Grounded Q&A with pinpoint citations</div>
+          </div>
+          <div class="metric-stat-card">
+            <div class="metric-stat-card__val">Multi-Doc</div>
+            <div class="metric-stat-card__lbl">Corpus Support</div>
+            <div class="metric-stat-card__sub">Cross-paper synthesis & comparative search</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Executive Overview -->
+      <section class="project-section-block">
+        <h2 class="project-section-block__title">Executive Summary & Problem Statement</h2>
+        <div class="project-prose">
+          <p>
+            Academic research papers present severe challenges for standard Document Q&A and RAG applications.
+            Conventional PDF parsers and OCR tools (like Tesseract) corrupt multi-column layout flows, transform dense
+            mathematical formulas into meaningless ASCII strings, and scramble embedded scientific tables into
+            unreadable blocks.
+          </p>
+          <p>
+            <strong>PaperInsight</strong> solved this critical information extraction bottleneck. We fine-tuned Meta's
+            <strong>Nougat</strong> (Neural Optical Understanding for Academic Documents) visual transformer model to
+            convert page screenshots directly into semantically clean Markdown and LaTeX syntax, preserving equations,
+            matrices, and tables with zero loss. Coupled with high-density vector retrieval and Gemini 1.0 Pro,
+            researchers can converse intuitively with complex technical literature.
+          </p>
+        </div>
+      </section>
+
+      <!-- Preprocessing & Retrieval Pipeline -->
+      <section class="project-section-block">
+        <h2 class="project-section-block__title">Technical Architecture & Pipeline</h2>
+        <div class="pipeline-grid">
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 01</span>
+              <span class="pipeline-step__tool">Visual Renderer</span>
+            </div>
+            <h3 class="pipeline-step__name">High-Res Page Rasterization</h3>
+            <p class="pipeline-step__desc">
+              Renders multi-page PDF documents into high-DPI image representations to feed visual transformer attention
+              mechanisms.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Prevents PDF font encoding corruption and preserves inline figure
+              references.
+            </div>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 02</span>
+              <span class="pipeline-step__tool">Nougat Visual Transformer</span>
+            </div>
+            <h3 class="pipeline-step__name">Optical LaTeX & Markdown Parsing</h3>
+            <p class="pipeline-step__desc">
+              Fine-tuned vision transformer transcribes complex multi-column scientific layouts, mathematical symbols,
+              and tables directly into structured Markdown and LaTeX.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Guarantees zero loss of semantic meaning in mathematical formulas,
+              chemical equations, and tabular data.
+            </div>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 03</span>
+              <span class="pipeline-step__tool">Equation-Aware Splitter</span>
+            </div>
+            <h3 class="pipeline-step__name">Semantic Chunking & Embedding</h3>
+            <p class="pipeline-step__desc">
+              Splits parsed Markdown along natural section, proof, and theorem boundaries rather than arbitrary token
+              character counts.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Keeps mathematical formulas and explanatory context unified within single
+              vector embeddings.
+            </div>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 04</span>
+              <span class="pipeline-step__tool">Vector DB + BM25</span>
+            </div>
+            <h3 class="pipeline-step__name">Hybrid Dense-Sparse Retrieval</h3>
+            <p class="pipeline-step__desc">
+              Combines cosine semantic search with BM25 keyword matching to retrieve relevant paper excerpts, proofs,
+              and references.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Ensures high recall for both broad thematic concepts and precise
+              mathematical symbol searches.
+            </div>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 05</span>
+              <span class="pipeline-step__tool">Gemini 1.0 Pro</span>
+            </div>
+            <h3 class="pipeline-step__name">Grounded Synthesis & Citation</h3>
+            <p class="pipeline-step__desc">
+              Synthesizes clear, factual answers grounded strictly in retrieved context, providing exact page-level and
+              theorem-level references.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Completely eliminates hallucinations and enables rapid verification for
+              academic researchers.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Impact & Future Vision -->
+      <section class="project-section-block">
+        <h2 class="project-section-block__title">Hackathon Recognition & Future Scope</h2>
+        <div class="project-prose">
+          <p>
+            Awarded <strong>1st Prize at MINeD Hackathon 2024</strong> (hosted jointly by Binghamton University & Nirma
+            University) among 150+ international teams. The project was commended for solving the pervasive issue of
+            mathematical parsing failures in document question answering.
+          </p>
+        </div>
+
+        <div class="project-actions">
+          <a href="https://github.com/Gaurav24958/PaperInsight" target="_blank" rel="noopener"
+            class="btn-primary-action">
+            View on GitHub ↗
+          </a>
+          <a href="/india/projects/" class="btn-secondary-action">
+            ← Back to All Projects
+          </a>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer__links">
+      <a href="https://github.com/Gaurav24958" target="_blank" rel="noopener">GitHub</a>
+      ·
+      <a href="https://linkedin.com/in/gauravboob/" target="_blank" rel="noopener">LinkedIn</a>
+      ·
+      <a href="mailto:boobg@tcd.ie">Mail</a>
+    </p>
+    <p class="site-footer__copy">
+      © 2026 Gaurav Boob. All rights reserved.
+    </p>
+  </footer>
+
+  <div class="curtain"></div>
+  <script src="/js/main.js?v=20260602" defer></script>
+</body>
+
+</html>

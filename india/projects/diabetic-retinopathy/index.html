@@ -1,0 +1,252 @@
+<!doctype html>
+<html data-chapter="india" class="project-detail-page">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diabetic Retinopathy Classification — Gaurav Boob</title>
+  <link rel="stylesheet" href="/css/style.css?v=20260602" />
+</head>
+
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="/india/">About</a>
+        <a href="/india/experience/">Experience</a>
+        <a href="/india/projects/">Projects</a>
+      </div>
+
+      <div class="chapter-toggle">
+        <button class="toggle-btn" id="btn-india" data-target="/india/">
+          🇮🇳 IND
+        </button>
+        <span class="toggle-divider">↔</span>
+        <button class="toggle-btn" id="btn-ireland" data-target="/ireland/">
+          IRE 🇮🇪
+        </button>
+      </div>
+
+      <div class="nav-right">
+        <a href="/india/life/">Life</a>
+        <a href="/Gaurav_Uni_Resume.pdf" download>Resume</a>
+        <button class="theme-toggle" id="theme-toggle">○</button>
+      </div>
+
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile-menu" id="nav-mobile-menu">
+      <a href="/india/">About</a>
+      <a href="/india/experience/">Experience</a>
+      <a href="/india/projects/">Projects</a>
+      <a href="/india/life/">Life</a>
+      <a href="/Gaurav_Uni_Resume.pdf" download>Resume</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <article class="project-case-study" id="project-case-study">
+      <div>
+        <a href="/india/projects/" class="project-back-btn">
+          ← Back to Projects
+        </a>
+      </div>
+
+      <header class="project-detail-header">
+        <div class="project-modal__meta-top">
+          <span class="project-card__badge">Clinical Research</span>
+          <span class="tag">Medical Imaging</span>
+          <span class="tag">YOLOv8x</span>
+          <span class="tag">CNN-LSTM</span>
+          <span class="tag">CLAHE</span>
+        </div>
+        <h1>Diabetic Retinopathy Classification & Macular Edema Detection</h1>
+        <p class="project-detail-subtitle">
+          Automated Severity Grading and Macular Swelling Detection from Fundus Retinal Photography using Computer
+          Vision.
+        </p>
+
+        <div class="project-actions">
+          <a href="https://github.com/Gaurav24958" target="_blank" rel="noopener" class="btn-primary-action">
+            💻 GitHub Code ↗
+          </a>
+        </div>
+      </header>
+
+      <!-- Key Metrics & Recognition -->
+      <section class="project-section-block">
+        <h2 class="project-section-block__title">Key Results & Achievements</h2>
+        <div class="metric-stat-grid">
+          <div class="metric-stat-card">
+            <div class="metric-stat-card__val">95%+</div>
+            <div class="metric-stat-card__lbl">Classification Accuracy</div>
+            <div class="metric-stat-card__sub">Multi-stage severity grading</div>
+          </div>
+          <div class="metric-stat-card">
+            <div class="metric-stat-card__val">Hospital</div>
+            <div class="metric-stat-card__lbl">Clinical Validation</div>
+            <div class="metric-stat-card__sub">Tested in real medical environments</div>
+          </div>
+          <div class="metric-stat-card">
+            <div class="metric-stat-card__val">YOLOv8x</div>
+            <div class="metric-stat-card__lbl">Deep Architecture</div>
+            <div class="metric-stat-card__sub">Fine-tuned lesion localization</div>
+          </div>
+          <div class="metric-stat-card">
+            <div class="metric-stat-card__val">Springer</div>
+            <div class="metric-stat-card__lbl">Journal Publication</div>
+            <div class="metric-stat-card__sub">Under consideration for publication</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Executive Overview -->
+      <section class="project-section-block">
+        <h2 class="project-section-block__title">Executive Summary & Clinical Need</h2>
+        <div class="project-prose">
+          <p>
+            Diabetic Retinopathy (DR) is the primary cause of preventable blindness among working-age adults globally.
+            Timely detection can prevent over 90% of severe vision loss, yet screening is severely bottlenecked by the
+            shortage of trained ophthalmologists and specialized equipment in high-density or rural populations.
+          </p>
+          <p>
+            In the Deep Learning Lab at SCTR's PICT, we developed an automated computer vision screening model capable
+            of grading retinopathy into 5 distinct clinical severity levels (No DR, Mild, Moderate, Severe,
+            Proliferative DR) while detecting retinal swelling (macular edema). By combining morphological preprocessing
+            with deep convolutional and recurrent architectures, the system achieved over <strong>95% accuracy</strong>
+            on sizable clinical datasets and was validated in hospital settings.
+          </p>
+        </div>
+      </section>
+
+      <!-- Preprocessing & Model Pipeline -->
+      <section class="project-section-block">
+        <h2 class="project-section-block__title">The Preprocessing & Medical Imaging Pipeline</h2>
+        <div class="pipeline-grid">
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 01</span>
+              <span class="pipeline-step__tool">OpenCV Processing</span>
+            </div>
+            <h3 class="pipeline-step__name">Illumination Correction & Glare Removal</h3>
+            <p class="pipeline-step__desc">
+              Applies Subtract Mean processing to correct non-uniform optical flash lighting and eliminate retinal
+              reflection artifacts.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Standardizes illumination across fundus images taken on different
+              hospital fundus camera hardware.
+            </div>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 02</span>
+              <span class="pipeline-step__tool">CLAHE Filter</span>
+            </div>
+            <h3 class="pipeline-step__name">Contrast Limited Adaptive Histogram Equalization</h3>
+            <p class="pipeline-step__desc">
+              Locally enhances contrast in discrete contextual image tiles without amplifying background sensor noise.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Makes faint microaneurysms, hemorrhages, and neovascular vessels sharply
+              prominent for feature extraction.
+            </div>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 03</span>
+              <span class="pipeline-step__tool">Albumentations</span>
+            </div>
+            <h3 class="pipeline-step__name">Class-Balanced Augmentation</h3>
+            <p class="pipeline-step__desc">
+              Employs affine shearing, elastic deformations, and weighted sampling to counter extreme medical class
+              imbalances.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Prevents model bias toward common healthy retinas, ensuring high
+              sensitivity for rare, vision-critical Proliferative DR.
+            </div>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 04</span>
+              <span class="pipeline-step__tool">YOLOv8x + CNN</span>
+            </div>
+            <h3 class="pipeline-step__name">Multi-Scale Lesion Localization</h3>
+            <p class="pipeline-step__desc">
+              Fine-tuned YOLOv8x deep backbone detects microaneurysms, hard exudates, cotton-wool spots, and macular
+              swelling.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Generates interpretable visual heatmaps that provide clinical
+              justification to ophthalmologists.
+            </div>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 05</span>
+              <span class="pipeline-step__tool">LSTM Recurrent Units</span>
+            </div>
+            <h3 class="pipeline-step__name">Clinical Severity Grading</h3>
+            <p class="pipeline-step__desc">
+              Integrates spatial lesion patterns into an ordinal classifier predicting disease stage and macular edema
+              risk.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Directly translates computer vision features into clinical triage
+              priorities for hospital workflows.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Clinical Validation & Future Scope -->
+      <section class="project-section-block">
+        <h2 class="project-section-block__title">Clinical Validation & Impact</h2>
+        <div class="project-prose">
+          <p>
+            Our model was tested in real hospital settings against certified ophthalmologist readings, demonstrating
+            consistent performance above 95% accuracy and outperforming previous automated baselines. The paper
+            documenting this research is currently under consideration for publication in a Springer Journal.
+          </p>
+        </div>
+
+        <div class="project-actions">
+          <a href="https://github.com/Gaurav24958" target="_blank" rel="noopener" class="btn-primary-action">
+            View on GitHub ↗
+          </a>
+          <a href="/india/projects/" class="btn-secondary-action">
+            ← Back to All Projects
+          </a>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer__links">
+      <a href="https://github.com/Gaurav24958" target="_blank" rel="noopener">GitHub</a>
+      ·
+      <a href="https://linkedin.com/in/gauravboob/" target="_blank" rel="noopener">LinkedIn</a>
+      ·
+      <a href="mailto:boobg@tcd.ie">Mail</a>
+    </p>
+    <p class="site-footer__copy">
+      © 2026 Gaurav Boob. All rights reserved.
+    </p>
+  </footer>
+
+  <div class="curtain"></div>
+  <script src="/js/main.js?v=20260602" defer></script>
+</body>
+
+</html>

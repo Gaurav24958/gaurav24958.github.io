@@ -1,145 +1,205 @@
 <!doctype html>
 <html data-chapter="ireland" class="projects-page">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gaurav Boob — Projects | Ireland</title>
-    <link rel="stylesheet" href="/css/style.css?v=20260602" />
-  </head>
-  <body>
-    <nav class="site-nav">
-      <div class="nav-inner">
-        <div class="nav-left">
-          <a href="/ireland/">About</a>
-          <a href="/ireland/experience/">Experience</a>
-          <a href="/ireland/projects/">Projects</a>
-        </div>
 
-        <div class="chapter-toggle">
-          <button class="toggle-btn" id="btn-india" data-target="/india/">
-            🇮🇳 IND
-          </button>
-          <span class="toggle-divider">↔</span>
-          <button class="toggle-btn" id="btn-ireland" data-target="/ireland/">
-            IRE 🇮🇪
-          </button>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gaurav Boob — Projects | Ireland</title>
+  <link rel="stylesheet" href="/css/style.css?v=20260605" />
+</head>
 
-        <div class="nav-right">
-          <a href="/ireland/msc-tcd/">MSc @ TCD</a>
-          <a href="/ireland/dublin-life/">Dublin Life</a>
-          <!-- <a href="/ireland/whats-next/">What's Next</a> -->
-          <a href="/Gaurav_Uni_Resume.pdf" download>Resume</a>
-          <button class="theme-toggle" id="theme-toggle">○</button>
-        </div>
-
-        <button class="nav-hamburger" id="nav-hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-
-      <div class="nav-mobile-menu" id="nav-mobile-menu">
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="nav-left">
         <a href="/ireland/">About</a>
         <a href="/ireland/experience/">Experience</a>
         <a href="/ireland/projects/">Projects</a>
+      </div>
+
+      <div class="chapter-toggle">
+        <button class="toggle-btn" id="btn-india" data-target="/india/">
+          🇮🇳 IND
+        </button>
+        <span class="toggle-divider">↔</span>
+        <button class="toggle-btn" id="btn-ireland" data-target="/ireland/">
+          IRE 🇮🇪
+        </button>
+      </div>
+
+      <div class="nav-right">
         <a href="/ireland/msc-tcd/">MSc @ TCD</a>
         <a href="/ireland/dublin-life/">Dublin Life</a>
         <!-- <a href="/ireland/whats-next/">What's Next</a> -->
         <a href="/Gaurav_Uni_Resume.pdf" download>Resume</a>
+        <button class="theme-toggle" id="theme-toggle">○</button>
       </div>
-    </nav>
 
-    <main class="container">
-      <section style="margin: 0rem 0 3rem 0">
-        <h1>Projects</h1>
-        <div class="grid grid-3">
-          <div class="card">
-            <div class="card-title">Lipreading for Indian Accent English</div>
-            <div class="card-description">
-              Trained a custom CNN-BiLSTM model to interpret speech from visual
-              cues for Indian English. Achieved 4% CER and 15% WER. Ranked first
-              in international project competition with 500-video custom
-              dataset.
-            </div>
-            <div class="card-stack">
-              <span class="tag">Deep Learning</span>
-              <span class="tag">Computer Vision</span>
-              <span class="tag">Python</span>
-              <span class="tag">TensorFlow</span>
-            </div>
-            <div class="card-links">
-              <a href="https://github.com/Gaurav24958" class="card-link"
-                >GitHub</a
-              >
-            </div>
+      <button class="nav-hamburger" id="nav-hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile-menu" id="nav-mobile-menu">
+      <a href="/ireland/">About</a>
+      <a href="/ireland/experience/">Experience</a>
+      <a href="/ireland/projects/">Projects</a>
+      <a href="/ireland/msc-tcd/">MSc @ TCD</a>
+      <a href="/ireland/dublin-life/">Dublin Life</a>
+      <!-- <a href="/ireland/whats-next/">What's Next</a> -->
+      <a href="/Gaurav_Uni_Resume.pdf" download>Resume</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section style="margin: 0rem 0 3rem 0">
+      <h1>Projects</h1>
+      <div class="grid grid-2">
+        <!-- Project 1: Lipreading -->
+        <div class="card project-card" data-project="lipreading" data-href="/ireland/projects/lipreading/" tabindex="0"
+          role="button" aria-haspopup="dialog" aria-label="View Lipreading project case study">
+          <div class="project-card__header">
+            <span class="project-card__badge">Research Project</span>
+            <span class="project-card__click-hint">
+              <span class="desktop-hint">Expand ↗</span>
+            </span>
           </div>
-
-          <div class="card">
-            <div class="card-title">Chat with Scientific Documents</div>
-            <div class="card-description">
-              RAG-based application enabling natural language queries over
-              research papers. Semantic search integration with document parsing
-              and LLM-powered responses.
-            </div>
-            <div class="card-stack">
-              <span class="tag">RAG</span>
-              <span class="tag">LLM</span>
-              <span class="tag">Python</span>
-              <span class="tag">NLP</span>
-            </div>
-            <div class="card-links">
-              <a
-                href="https://github.com/Gaurav24958/PaperInsight"
-                class="card-link"
-                >GitHub</a
-              >
-            </div>
+          <div class="card-title">Lipreading for Indian Accent English</div>
+          <div class="card-description">
+            Trained a custom CNN-BiLSTM model to interpret speech from visual cues for Indian English. Achieved 4% CER
+            and 15% WER. Ranked first in international project competition with 500-video custom dataset.
           </div>
-
-          <div class="card">
-            <div class="card-title">Diabetic Retinopathy Classification</div>
-            <div class="card-description">
-              Developed a CNN model for classifying diabetic retinopathy
-              severity from retina images. Achieved 95%+ accuracy. Implemented
-              data cleaning, image refinement, and deployed in hospital
-              settings.
-            </div>
-            <div class="card-stack">
-              <span class="tag">Computer Vision</span>
-              <span class="tag">CNN</span>
-              <span class="tag">TensorFlow</span>
-              <span class="tag">Medical Imaging</span>
-            </div>
+          <div class="card-stack">
+            <span class="tag">Deep Learning</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Python</span>
+            <span class="tag">TensorFlow</span>
+          </div>
+          <div class="project-card__footer">
             <div class="card-links">
-              <a href="https://github.com/Gaurav24958" class="card-link"
-                >GitHub</a
-              >
+              <a href="https://github.com/Gaurav24958" class="card-link" target="_blank" rel="noopener">GitHub</a>
             </div>
+            <span class="project-card__cta">Case Study →</span>
           </div>
         </div>
-      </section>
-    </main>
 
-    <footer class="site-footer">
-      <p class="site-footer__links">
-        <a href="https://github.com/Gaurav24958"
-           target="_blank" rel="noopener">GitHub</a>
-        ·
-        <a href="https://linkedin.com/in/gauravboob/"
-           target="_blank" rel="noopener">LinkedIn</a>
-        ·
-        <a href="mailto:boobg@tcd.ie">
-          Mail
-        </a>
-      </p>
-      <p class="site-footer__copy">
-        © 2026 Gaurav Boob. All rights reserved.
-      </p>
-    </footer>
+        <!-- Project 2: Ireland Visa Decisions Tracker -->
+        <div class="card project-card" data-project="ireland-visa" data-href="/ireland/projects/ireland-visa/"
+          tabindex="0" role="button" aria-haspopup="dialog" aria-label="View Ireland Visa Decisions Tracker case study">
+          <div class="project-card__header">
+            <span class="project-card__badge">Production Web App</span>
+            <span class="project-card__click-hint">
+              <span class="desktop-hint">Expand ↗</span>
+            </span>
+          </div>
+          <div class="card-title">☘️ Ireland Visa Decisions Tracker</div>
+          <div class="card-description">
+            Automated scraping and in-memory parsing utility for daily Irish Embassy (NDVO) visa decisions. Features
+            regex heuristic parsing, daily cron sync, and instant 8-digit application lookup.
+          </div>
+          <div class="card-stack">
+            <span class="tag">Node.js</span>
+            <span class="tag">Express</span>
+            <span class="tag">Cheerio</span>
+            <span class="tag">SheetJS</span>
+            <span class="tag">Render</span>
+          </div>
+          <div class="project-card__footer">
+            <div class="card-links">
+              <a href="https://irelandvisadecision.onrender.com/" class="card-link" target="_blank" rel="noopener">Live
+                App ↗</a>
+              <a href="https://github.com/Gaurav24958/IrelandVisaDecision" class="card-link" target="_blank"
+                rel="noopener">GitHub</a>
+            </div>
+            <span class="project-card__cta">Case Study →</span>
+          </div>
+        </div>
 
-    <div class="curtain"></div>
-    <script src="/js/main.js?v=20260602" defer></script>
-  </body>
+        <!-- Project 3: Scientific Docs -->
+        <div class="card project-card" data-project="scientific-docs" data-href="/ireland/projects/scientific-docs/"
+          tabindex="0" role="button" aria-haspopup="dialog" aria-label="View Chat with Scientific Documents case study">
+          <div class="project-card__header">
+            <span class="project-card__badge">Hackathon Winner</span>
+            <span class="project-card__click-hint">
+              <span class="desktop-hint">Expand ↗</span>
+            </span>
+          </div>
+          <div class="card-title">Chat with Scientific Documents</div>
+          <div class="card-description">
+            RAG-based application enabling natural language queries over research papers. Fine-tuned Nougat visual
+            transformer for complex mathematical formulas with Gemini 1.0 Pro.
+          </div>
+          <div class="card-stack">
+            <span class="tag">RAG</span>
+            <span class="tag">LLM</span>
+            <span class="tag">Nougat</span>
+            <span class="tag">Gemini Pro</span>
+          </div>
+          <div class="project-card__footer">
+            <div class="card-links">
+              <a href="https://github.com/Gaurav24958/PaperInsight" class="card-link" target="_blank"
+                rel="noopener">GitHub</a>
+            </div>
+            <span class="project-card__cta">Case Study →</span>
+          </div>
+        </div>
+
+        <!-- Project 4: Diabetic Retinopathy -->
+        <div class="card project-card" data-project="diabetic-retinopathy"
+          data-href="/ireland/projects/diabetic-retinopathy/" tabindex="0" role="button" aria-haspopup="dialog"
+          aria-label="View Diabetic Retinopathy Classification case study">
+          <div class="project-card__header">
+            <span class="project-card__badge">Clinical Research</span>
+            <span class="project-card__click-hint">
+              <span class="desktop-hint">Expand ↗</span>
+            </span>
+          </div>
+          <div class="card-title">Diabetic Retinopathy Classification</div>
+          <div class="card-description">
+            Developed a deep learning model for classifying diabetic retinopathy severity and macular edema from retina
+            images. Achieved 95%+ accuracy and validated in hospital settings.
+          </div>
+          <div class="card-stack">
+            <span class="tag">Computer Vision</span>
+            <span class="tag">YOLOv8x</span>
+            <span class="tag">CNN-LSTM</span>
+            <span class="tag">Medical Imaging</span>
+          </div>
+          <div class="project-card__footer">
+            <div class="card-links">
+              <a href="https://github.com/Gaurav24958" class="card-link" target="_blank" rel="noopener">GitHub</a>
+            </div>
+            <span class="project-card__cta">Case Study →</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Details Overlay Dialog (Desktop & Tablet) -->
+    <dialog id="project-modal" class="project-modal" closedby="any" aria-labelledby="modal-project-title">
+      <!-- Populated dynamically via JS -->
+    </dialog>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer__links">
+      <a href="https://github.com/Gaurav24958" target="_blank" rel="noopener">GitHub</a>
+      ·
+      <a href="https://linkedin.com/in/gauravboob/" target="_blank" rel="noopener">LinkedIn</a>
+      ·
+      <a href="mailto:boobg@tcd.ie">
+        Mail
+      </a>
+    </p>
+    <p class="site-footer__copy">
+      © 2026 Gaurav Boob. All rights reserved.
+    </p>
+  </footer>
+
+  <div class="curtain"></div>
+  <script src="/js/main.js?v=20260603" defer></script>
+</body>
+
 </html>

@@ -1,0 +1,393 @@
+<!doctype html>
+<html data-chapter="ireland" class="project-detail-page">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lipreading for Indian Accent English — Gaurav Boob</title>
+  <link rel="stylesheet" href="/css/style.css?v=20260602" />
+</head>
+
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="/ireland/">About</a>
+        <a href="/ireland/experience/">Experience</a>
+        <a href="/ireland/projects/">Projects</a>
+      </div>
+
+      <div class="chapter-toggle">
+        <button class="toggle-btn" id="btn-india" data-target="/india/">
+          🇮🇳 IND
+        </button>
+        <span class="toggle-divider">↔</span>
+        <button class="toggle-btn" id="btn-ireland" data-target="/ireland/">
+          IRE 🇮🇪
+        </button>
+      </div>
+
+      <div class="nav-right">
+        <a href="/ireland/msc-tcd/">MSc @ TCD</a>
+        <a href="/ireland/dublin-life/">Dublin Life</a>
+        <a href="/Gaurav_Uni_Resume.pdf" download>Resume</a>
+        <button class="theme-toggle" id="theme-toggle">○</button>
+      </div>
+
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile-menu" id="nav-mobile-menu">
+      <a href="/ireland/">About</a>
+      <a href="/ireland/experience/">Experience</a>
+      <a href="/ireland/projects/">Projects</a>
+      <a href="/ireland/msc-tcd/">MSc @ TCD</a>
+      <a href="/ireland/dublin-life/">Dublin Life</a>
+      <a href="/Gaurav_Uni_Resume.pdf" download>Resume</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <article class="project-case-study" id="project-case-study">
+      <div>
+        <a href="/ireland/projects/" class="project-back-btn">
+          ← Back to Projects
+        </a>
+      </div>
+
+      <header class="project-detail-header">
+        <div class="project-modal__meta-top">
+          <span class="project-card__badge">Research Project</span>
+          <span class="tag">Deep Learning</span>
+          <span class="tag">Computer Vision</span>
+          <span class="tag">CNN-BiLSTM</span>
+        </div>
+        <h1>Lipreading for Indian Accent English</h1>
+        <p class="project-detail-subtitle">
+          Spatiotemporal Deep Learning Model (Conv3D-BiLSTM) for Visual Speech Recognition on Indian-accented English.
+        </p>
+
+        <div class="project-actions">
+          <a href="https://link.springer.com/chapter/10.1007/978-981-97-8591-9_30" target="_blank" rel="noopener"
+            class="btn-primary-action">
+            📄 Springer Paper ↗
+          </a>
+          <!-- <a href="https://github.com/Gaurav24958" target="_blank" rel="noopener" class="btn-secondary-action">
+            💻 GitHub Code
+          </a> -->
+          <a href="#demo-video" class="btn-secondary-action">
+            ▶ Jump to Demo Video
+          </a>
+        </div>
+      </header>
+
+      <!-- Demo Video Section -->
+      <section id="demo-video" class="project-section-block">
+        <h2 class="project-section-block__title">Project Demo Video</h2>
+        <div class="project-video-container" data-project-id="lipreading">
+          <div class="project-video-wrapper">
+            <iframe class="project-video-iframe" id="project-video-iframe-lipreading"
+              src="https://drive.google.com/file/d/1Jhb-fGVjq1rEbbjmYf9vNLdnGRPH0ejI/preview"
+              title="Lipreading Demo Video" allow="autoplay; fullscreen" allowfullscreen>
+            </iframe>
+          </div>
+          <div class="project-video-caption">
+            <div class="project-video-caption__left">
+              <span class="project-video-caption__badge">▶</span>
+              <span>Demo Video · Google Drive</span>
+            </div>
+            <a href="https://drive.google.com/file/d/1Jhb-fGVjq1rEbbjmYf9vNLdnGRPH0ejI/view?usp=sharing" target="_blank"
+              rel="noopener" class="project-video-caption__link" id="drive-link-lipreading">
+              Open in Drive ↗
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Metrics & Recognition -->
+      <section class="project-section-block">
+        <h2 class="project-section-block__title">Key Results & Achievements</h2>
+        <div class="metric-stat-grid">
+          <div class="metric-stat-card">
+            <div class="metric-stat-card__val">4% CER</div>
+            <div class="metric-stat-card__lbl">Character Error Rate</div>
+            <div class="metric-stat-card__sub">96% character prediction precision</div>
+          </div>
+          <div class="metric-stat-card">
+            <div class="metric-stat-card__val">15% WER</div>
+            <div class="metric-stat-card__lbl">Word Error Rate</div>
+            <div class="metric-stat-card__sub">85% word accuracy (beats human lipreaders)</div>
+          </div>
+          <div class="metric-stat-card">
+            <div class="metric-stat-card__val">3.043</div>
+            <div class="metric-stat-card__lbl">Validation Loss</div>
+            <div class="metric-stat-card__sub">Low sequence-level CTC loss</div>
+          </div>
+          <div class="metric-stat-card">
+            <div class="metric-stat-card__val">#1 Rank</div>
+            <div class="metric-stat-card__lbl">INC'24 Flagship</div>
+            <div class="metric-stat-card__sub">Winner against 200+ teams</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Executive Overview -->
+      <section class="project-section-block">
+        <h2 class="project-section-block__title">Executive Summary & Research Motivation</h2>
+        <div class="project-prose">
+          <p>
+            Lipreading — deciphering speech purely from visual mouth and lip dynamics — is a vital technology for
+            hearing-impaired individuals, noisy industrial environments, and security surveillance where audio streams
+            are corrupted or absent.
+          </p>
+          <p>
+            While visual speech recognition has made strides on Western corpora (e.g., GRID and LRW), existing models
+            fail significantly when evaluated on Indian-accented English. Indian English exhibits distinct phonetic
+            coarticulation, unique visemes, rapid syllable cadences, and diverse facial features. This project created a
+            novel spatiotemporal deep learning framework explicitly engineered to address Indian-accented speech
+            dynamics.
+          </p>
+        </div>
+      </section>
+
+      <!-- The Middle Processing Stage (Detailed Preprocessing Pipeline) -->
+      <section class="project-section-block">
+        <h2 class="project-section-block__title">The Middle Processing Stage (Preprocessing Pipeline)</h2>
+        <div class="project-prose">
+          <p>
+            The video data preprocessing pipeline transforms unconstrained speaker video footage into normalized,
+            spatiotemporal tensors optimized for deep neural network consumption.
+          </p>
+        </div>
+
+        <div class="pipeline-grid">
+          <!-- Step 1 -->
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 01</span>
+              <span class="pipeline-step__tool">FFmpeg Utility</span>
+            </div>
+            <h3 class="pipeline-step__name">Format Conversion & Audio Stripping</h3>
+            <p class="pipeline-step__desc">
+              Converts raw multi-format video files into standard MP4 containers. The audio track is completely removed
+              to force the pipeline to rely exclusively on visual speech cues.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Eliminates auditory leakage and reduces storage and compute overhead
+              across thousands of video tensors.
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 02</span>
+              <span class="pipeline-step__tool">Dlib Face Detector</span>
+            </div>
+            <h3 class="pipeline-step__name">Invariant Face Detection</h3>
+            <p class="pipeline-step__desc">
+              Employs Dlib's facial detection framework to locate the speaker's face regardless of position, head tilt,
+              or distance from the camera frame.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Anchors the pipeline to a rock-solid spatial reference point across
+              varying speaker setups and environmental conditions.
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 03</span>
+              <span class="pipeline-step__tool">Dlib 68-Point Model</span>
+            </div>
+            <h3 class="pipeline-step__name">Lip Landmark Point Extraction</h3>
+            <p class="pipeline-step__desc">
+              Extracts 68 facial landmark coordinates per frame, isolating key node points that delineate the outer lip
+              boundary and inner mucosal opening.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Provides precise geometric coordinates of mouth deformations while
+              discarding extraneous head, cheek, and eye motions.
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 04</span>
+              <span class="pipeline-step__tool">OpenCV ROI Cropping</span>
+            </div>
+            <h3 class="pipeline-step__name">ROI Cropping & Uniform Resizing (140 × 46 px)</h3>
+            <p class="pipeline-step__desc">
+              Crops the Region of Interest (ROI) around the extracted lip landmark coordinates and resizes every frame
+              uniformly to 140 × 46 pixels.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Removes background visual clutter, ensuring consistent dimensional
+              tensors for convolutional filters without compute waste.
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 05</span>
+              <span class="pipeline-step__tool">NumPy Tensor Math</span>
+            </div>
+            <h3 class="pipeline-step__name">Color Standardization & Pixel Normalization</h3>
+            <p class="pipeline-step__desc">
+              Standardizes RGB channels across all video frames to zero mean and unit variance (&mu; = 0, &sigma;&sup2;
+              = 1).
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Neutralizes ambient room lighting shifts, shadows, and variations in skin
+              tones across diverse Indian speakers.
+            </div>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 06</span>
+              <span class="pipeline-step__tool">VSDC & .align Files</span>
+            </div>
+            <h3 class="pipeline-step__name">Spatiotemporal Sequencing (75 Frames @ 25 fps)</h3>
+            <p class="pipeline-step__desc">
+              Packages 75 consecutive frames into unified tensor sequences (exact 3.0-second clips). Aligned
+              frame-by-frame with word-level millisecond duration markers.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Preserves chronological syllable progression needed for recurrent
+              sequence modeling and CTC loss alignment.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Deep Learning Architecture -->
+      <!-- <section class="project-section-block">
+        <h2 class="project-section-block__title">Deep Learning Architecture</h2>
+        <div class="project-prose">
+          <p>
+            The model incorporates an end-to-end spatiotemporal neural network combining 3D Convolutions, temporal
+            compression, bidirectional recurrent memory, and CTC loss:
+          </p>
+        </div>
+
+        <ul class="arch-list">
+          <li class="arch-item">
+            <span class="arch-item__dot"></span>
+            <div>
+              <strong>Three 3D Convolutional Layers (Conv3D):</strong> Process 75 input frames through 3D convolutional
+              kernels with ReLU activations and MaxPooling3D, extracting spatial mouth geometry and temporal motion
+              vectors simultaneously across consecutive frames.
+            </div>
+          </li>
+          <li class="arch-item">
+            <span class="arch-item__dot"></span>
+            <div>
+              <strong>TimeDistributed Flatten:</strong> Flattens spatial feature dimensions while preserving the exact
+              chronological sequence order of the 75 frames for the subsequent recurrent stage.
+            </div>
+          </li>
+          <li class="arch-item">
+            <span class="arch-item__dot"></span>
+            <div>
+              <strong>Two Bidirectional LSTM Layers (BiLSTM):</strong> Capture forward and backward temporal
+              relationships across phonemes/visemes, allowing the model to use subsequent context to disambiguate
+              identical-looking mouth shapes (homophemes).
+            </div>
+          </li>
+          <li class="arch-item">
+            <span class="arch-item__dot"></span>
+            <div>
+              <strong>Dropout Regularization & Dense Softmax:</strong> Interleaved dropout layers mitigate overfitting
+              on speaker identities. The final dense layer produces character probability distributions across the
+              alphabet plus a blank token.
+            </div>
+          </li>
+          <li class="arch-item">
+            <span class="arch-item__dot"></span>
+            <div>
+              <strong>Connectionist Temporal Classification (CTC) Loss:</strong> Trains the sequence-to-sequence model
+              without requiring tedious frame-by-frame character annotations, learning to automatically align
+              variable-length visual utterances to text.
+            </div>
+          </li>
+        </ul>
+      </section> -->
+
+      <!-- Dataset & Training -->
+      <section class="project-section-block">
+        <h2 class="project-section-block__title">Dataset & Training Methodology</h2>
+        <div class="project-prose">
+          <p>
+            To address the lack of Indian-accented visual speech data, we synthesized a custom dataset of <strong>500
+              video clips</strong> recorded across 15+ Indian participants articulating 20+ distinct sentences derived
+            from the GRID corpus.
+          </p>
+          <p>
+            Each video was trimmed to exactly 3.0 seconds (75 frames at 25 fps) and synchronized on a frame-by-frame
+            basis using VSDC Free Video Editor. The model was trained on 2,250 composite videos (custom Indian dataset +
+            GRID dataset) for 100 epochs, reaching a validation loss of 3.043.
+          </p>
+        </div>
+      </section>
+
+      <!-- Deployment & Publications -->
+      <section class="project-section-block">
+        <h2 class="project-section-block__title">Deployment & Research Publications</h2>
+        <div class="project-prose">
+          <p>
+            <strong>Interactive Streamlit Web App:</strong> Deployed a user-friendly Streamlit interface that enables
+            users to upload custom video files, runs automated landmark extraction and normalization in real-time, and
+            outputs predicted sentence transcriptions alongside confidence scores.
+          </p>
+          <p>
+            <strong>Publications:</strong>
+          </p>
+          <ul>
+            <li>
+              "Leveraging Deep Learning for Lip Reading: A Comprehensive Analysis" — <a
+                href="https://link.springer.com/chapter/10.1007/978-981-97-8591-9_30" target="_blank"
+                rel="noopener">Published in Springer Conference</a>.
+            </li>
+            <li>
+              "Lipreading for Indian Accent English" — Submitted and currently under peer review at <em>Signal, Image
+                and Video Processing</em> (Springer Journal).
+            </li>
+          </ul>
+        </div>
+
+        <div class="project-actions">
+          <a href="/ireland/projects/" class="btn-secondary-action">
+            ← Back to All Projects
+          </a>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer__links">
+      <a href="https://github.com/Gaurav24958" target="_blank" rel="noopener">GitHub</a>
+      ·
+      <a href="https://linkedin.com/in/gauravboob/" target="_blank" rel="noopener">LinkedIn</a>
+      ·
+      <a href="mailto:boobg@tcd.ie">Mail</a>
+    </p>
+    <p class="site-footer__copy">
+      © 2026 Gaurav Boob. All rights reserved.
+    </p>
+  </footer>
+
+  <div class="curtain"></div>
+  <script src="/js/main.js?v=20260602" defer></script>
+</body>
+
+</html>

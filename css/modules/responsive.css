@@ -510,6 +510,7 @@
     height: 38% !important;
     padding: 1rem !important;
     box-sizing: border-box !important;
+    position: relative !important;
   }
 
   .life-page .chapter-panel[data-chapter-index="0"] .collage-column {
@@ -678,6 +679,37 @@
     .life-page .chapter-panel.is-active {
       transition: none !important;
     }
+  }
+
+  /* Project Modal and Case Study Mobile Rules */
+  .project-modal {
+    display: none !important;
+  }
+
+  .pipeline-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .metric-stat-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .project-case-study {
+    margin: 1rem auto 2.5rem auto !important;
+    gap: 1.25rem !important;
+  }
+
+  .project-detail-header h1 {
+    font-size: 2rem !important;
+  }
+
+  .project-actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .project-actions a {
+    justify-content: center !important;
   }
 }
 
@@ -931,5 +963,13 @@
 
   .journey-back-link .chapter-pre {
     font-size: 0.65rem;
+  }
+
+  .metric-stat-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .project-detail-header h1 {
+    font-size: 1.75rem !important;
   }
 }

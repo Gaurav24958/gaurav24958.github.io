@@ -1,0 +1,309 @@
+<!doctype html>
+<html data-chapter="ireland" class="project-detail-page">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ireland Visa Decisions Tracker — Gaurav Boob</title>
+  <link rel="stylesheet" href="/css/style.css?v=20260603" />
+</head>
+
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="/ireland/">About</a>
+        <a href="/ireland/experience/">Experience</a>
+        <a href="/ireland/projects/">Projects</a>
+      </div>
+
+      <div class="chapter-toggle">
+        <button class="toggle-btn" id="btn-india" data-target="/india/">
+          🇮🇳 IND
+        </button>
+        <span class="toggle-divider">↔</span>
+        <button class="toggle-btn" id="btn-ireland" data-target="/ireland/">
+          IRE 🇮🇪
+        </button>
+      </div>
+
+      <div class="nav-right">
+        <a href="/ireland/msc-tcd/">MSc @ TCD</a>
+        <a href="/ireland/dublin-life/">Dublin Life</a>
+        <a href="/Gaurav_Uni_Resume.pdf" download>Resume</a>
+        <button class="theme-toggle" id="theme-toggle">○</button>
+      </div>
+
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile-menu" id="nav-mobile-menu">
+      <a href="/ireland/">About</a>
+      <a href="/ireland/experience/">Experience</a>
+      <a href="/ireland/projects/">Projects</a>
+      <a href="/ireland/msc-tcd/">MSc @ TCD</a>
+      <a href="/ireland/dublin-life/">Dublin Life</a>
+      <a href="/Gaurav_Uni_Resume.pdf" download>Resume</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <article class="project-case-study" id="project-case-study">
+      <div>
+        <a href="/ireland/projects/" class="project-back-btn">
+          ← Back to Projects
+        </a>
+      </div>
+
+      <header class="project-detail-header">
+        <div class="project-modal__meta-top">
+          <span class="project-card__badge">Production Web App</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Express</span>
+          <span class="tag">Cheerio</span>
+          <span class="tag">SheetJS (xlsx)</span>
+          <span class="tag">node-cron</span>
+          <span class="tag">Render</span>
+        </div>
+        <h1>☘️ Ireland Visa Decisions Tracker</h1>
+        <p class="project-detail-subtitle">
+          Automated Web Scraper, In-Memory ODS Spreadsheet Parser & Instant Search Utility for New Delhi Visa Office
+          Decisions.
+        </p>
+
+        <div class="project-actions">
+          <a href="https://irelandvisadecision.onrender.com/" target="_blank" rel="noopener" class="btn-primary-action">
+            🚀 Live Application ↗
+          </a>
+          <a href="https://github.com/Gaurav24958/IrelandVisaDecision" target="_blank" rel="noopener"
+            class="btn-secondary-action">
+            💻 GitHub Repository ↗
+          </a>
+        </div>
+      </header>
+
+      <!-- Key Metrics & Recognition -->
+      <section class="project-section-block">
+        <h2 class="project-section-block__title">Key Results & System Specs</h2>
+        <div class="metric-stat-grid">
+          <div class="metric-stat-card">
+            <div class="metric-stat-card__val">11:00 AM</div>
+            <div class="metric-stat-card__lbl">Daily Cron Sync</div>
+            <div class="metric-stat-card__sub">Aligned with Embassy release time</div>
+          </div>
+          <div class="metric-stat-card">
+            <div class="metric-stat-card__val">2,400+</div>
+            <div class="metric-stat-card__lbl">Records Parsed</div>
+            <div class="metric-stat-card__sub">Per daily OpenDocument spreadsheet</div>
+          </div>
+          <div class="metric-stat-card">
+            <div class="metric-stat-card__val">0ms Lag</div>
+            <div class="metric-stat-card__lbl">In-Memory Search</div>
+            <div class="metric-stat-card__sub">Sub-millisecond query response</div>
+          </div>
+          <div class="metric-stat-card">
+            <div class="metric-stat-card__val">24/7</div>
+            <div class="metric-stat-card__lbl">Cloud Availability</div>
+            <div class="metric-stat-card__sub">UptimeRobot keep-alive on Render</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Executive Overview -->
+      <section class="project-section-block">
+        <h2 class="project-section-block__title">Executive Summary & Problem Statement</h2>
+        <div class="project-prose">
+          <p>
+            Applicants awaiting Irish visas through the New Delhi Visa Office (NDVO) faced a tedious daily ordeal: the
+            embassy publishes decision lists as raw OpenDocument Spreadsheets (<code>.ods</code> files) containing
+            thousands of rows of unstructured records. To check their status, applicants had to manually download heavy
+            files, install compatible software, and sift through thousands of entries every single day.
+          </p>
+          <p>
+            <strong>Ireland Visa Decisions Tracker</strong> is an automated web utility built to eliminate this
+            friction. It scrapes the Irish Embassy portal daily, downloads and parses the latest <code>.ods</code> file
+            directly in memory using dynamic regex heuristics, and serves a modern, glassmorphic dashboard where
+            applicants can check their visa outcome (Approved, Refused, or Pending) in seconds with their 8-digit
+            application number.
+          </p>
+        </div>
+      </section>
+
+      <!-- The Processing & Data Pipeline -->
+      <section class="project-section-block">
+        <h2 class="project-section-block__title">Technical Architecture & Scraping Pipeline</h2>
+        <div class="pipeline-grid">
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 01</span>
+              <span class="pipeline-step__tool">Cheerio & Axios</span>
+            </div>
+            <h3 class="pipeline-step__name">Automated Embassy Portal Crawling</h3>
+            <p class="pipeline-step__desc">
+              Emulates desktop browser User-Agent headers to scrape the official Irish Embassy portal (Ireland.ie)
+              daily, locating the newest <code>_NDVO_Visa_Decisions.ods</code> hyperlink while bypassing firewall
+              blocks.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Completely eliminates the need for applicants to manually visit
+              government pages and download raw files.
+            </div>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 02</span>
+              <span class="pipeline-step__tool">Node.js Buffers</span>
+            </div>
+            <h3 class="pipeline-step__name">In-Memory Binary Streaming</h3>
+            <p class="pipeline-step__desc">
+              Streams downloaded <code>.ods</code> spreadsheets straight into memory as binary buffers rather than
+              saving intermediate files to disk.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Maximizes I/O throughput and prevents disk storage bloat on ephemeral
+              cloud server containers.
+            </div>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 03</span>
+              <span class="pipeline-step__tool">SheetJS (xlsx)</span>
+            </div>
+            <h3 class="pipeline-step__name">Dynamic Header Discovery (Regex)</h3>
+            <p class="pipeline-step__desc">
+              Scans spreadsheet rows with regex patterns matching "Application Number" and "Decision" keys rather than
+              relying on brittle fixed cell row indices.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Future-proofs the parser against random Irish government formatting
+              shifts and newly added preamble rows.
+            </div>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 04</span>
+              <span class="pipeline-step__tool">Express.js API</span>
+            </div>
+            <h3 class="pipeline-step__name">Indexed JSON Cache & REST Endpoints</h3>
+            <p class="pipeline-step__desc">
+              Transforms parsed records into an indexed cache and exposes modular endpoints: <code>/api/status</code>,
+              <code>/api/search?q=...</code>, and <code>/api/sync</code> for manual triggers.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Enables sub-millisecond case-insensitive query lookups without database
+              bottlenecks.
+            </div>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 05</span>
+              <span class="pipeline-step__tool">node-cron + UptimeRobot</span>
+            </div>
+            <h3 class="pipeline-step__name">Scheduled Automation & Keep-Alive</h3>
+            <p class="pipeline-step__desc">
+              Runs an automated cron job every day at 11:00 AM IST (matching embassy release times). Configured with a
+              5-minute UptimeRobot heartbeat ping.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Bypasses Render free-tier container sleep constraints, ensuring 24/7
+              background cron reliability.
+            </div>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="pipeline-step__top">
+              <span class="pipeline-step__num">Step 06</span>
+              <span class="pipeline-step__tool">Vanilla JS & CSS</span>
+            </div>
+            <h3 class="pipeline-step__name">Glassmorphic UI & Client Validation</h3>
+            <p class="pipeline-step__desc">
+              Features strict 8-digit client-side input validation, animated Celtic clover state transitions, and
+              responsive status alert cards.
+            </p>
+            <div class="pipeline-step__why">
+              <strong>Why it matters:</strong> Saves server bandwidth by preventing malformed requests and delivers an
+              empathetic, stress-reducing user experience.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Architecture & Tech Stack Details -->
+      <section class="project-section-block">
+        <h2 class="project-section-block__title">System Architecture Highlights</h2>
+        <ul class="arch-list">
+          <li class="arch-item">
+            <span class="arch-item__dot"></span>
+            <div>
+              <strong>Resilient Scraping & Parsing Engine:</strong> Uses Cheerio and SheetJS (<code>xlsx</code>) with
+              heuristic column mapping to ingest complex OpenDocument formats seamlessly.
+            </div>
+          </li>
+          <li class="arch-item">
+            <span class="arch-item__dot"></span>
+            <div>
+              <strong>Container Persistence Architecture:</strong> Solved cloud container suspension via UptimeRobot
+              automated polling, maintaining scheduled daily updates without dedicated infrastructure costs.
+            </div>
+          </li>
+          <li class="arch-item">
+            <span class="arch-item__dot"></span>
+            <div>
+              <strong>Lightweight REST Microservice:</strong> Express.js backend serving both API consumers and the
+              frontend single-page dashboard with zero heavy framework bloat.
+            </div>
+          </li>
+          <li class="arch-item">
+            <span class="arch-item__dot"></span>
+            <div>
+              <strong>Empathetic UX Design:</strong> Instant status categorization (Approved in emerald green, Refused
+              in alert red, Pending in informative amber) providing clarity for nervous visa applicants.
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Action Footer -->
+      <section class="project-section-block">
+        <div class="project-actions">
+          <a href="https://irelandvisadecision.onrender.com/" target="_blank" rel="noopener" class="btn-primary-action">
+            🚀 Open Live Utility ↗
+          </a>
+          <a href="https://github.com/Gaurav24958/IrelandVisaDecision" target="_blank" rel="noopener"
+            class="btn-secondary-action">
+            💻 View on GitHub ↗
+          </a>
+          <a href="/ireland/projects/" class="btn-secondary-action">
+            ← Back to All Projects
+          </a>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer__links">
+      <a href="https://github.com/Gaurav24958" target="_blank" rel="noopener">GitHub</a>
+      ·
+      <a href="https://linkedin.com/in/gauravboob/" target="_blank" rel="noopener">LinkedIn</a>
+      ·
+      <a href="mailto:boobg@tcd.ie">Mail</a>
+    </p>
+    <p class="site-footer__copy">
+      © 2026 Gaurav Boob. All rights reserved.
+    </p>
+  </footer>
+
+  <div class="curtain"></div>
+  <script src="/js/main.js?v=20260603" defer></script>
+</body>
+
+</html>
