@@ -1353,9 +1353,50 @@ function initWishlistItems() {
   });
 }
 
+function initHeroVideo() {
+  const heroVideo = document.querySelector('.hero-video');
+  if (!heroVideo) return;
+
+  // Force DOM properties required by iOS Safari / WebKit for autoplay
+  heroVideo.muted = true;
+  heroVideo.defaultMuted = true;
+  heroVideo.playsInline = true;
+  heroVideo.setAttribute('playsinline', '');
+  heroVideo.setAttribute('webkit-playsinline', '');
+
+  const startPlayback = () => {
+    const playPromise = heroVideo.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay blocked by iOS Low Power Mode or Safari policy.
+        // Start playback on first interaction (tap, touch, scroll)
+        const unlock = () => {
+          heroVideo.play().catch(() => {});
+          ['touchstart', 'touchend', 'click', 'scroll'].forEach((evt) => {
+            window.removeEventListener(evt, unlock);
+          });
+        };
+        ['touchstart', 'touchend', 'click', 'scroll'].forEach((evt) => {
+          window.addEventListener(evt, unlock, { once: true, passive: true });
+        });
+      });
+    }
+  };
+
+  startPlayback();
+
+  // Resume when returning from another tab or app
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && heroVideo.paused) {
+      startPlayback();
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initHamburger();
   initCurtain();
+  initHeroVideo();
   initTabs();
   initChapter();
   initDarkMode();
