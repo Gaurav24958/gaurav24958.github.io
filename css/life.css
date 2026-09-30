@@ -733,7 +733,7 @@
   left: -10px;
   width: calc(100% + 20px);
   height: calc(100% + 20px);
-  background-image: linear-gradient(rgba(26, 15, 0, 0.85), rgba(26, 15, 0, 0.85)), url('/assets/india/BackgroundLife.jpeg');
+  background-image: linear-gradient(rgba(26, 15, 0, 0.85), rgba(26, 15, 0, 0.85)), url('/assets/india/BackgroundLife.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
